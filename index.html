@@ -49,11 +49,154 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <style>
+    @media (max-width: 1199px) {
+      .header {
+        width: 100%;
+        height: 70px;
+        top: 0;
+        left: 0;
+        bottom: auto;
+        padding: 0;
+        background-color: var(--background-color);
+        border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        transition: all ease-in-out 0.3s;
+      }
+
+      .header.header-show {
+        left: 0;
+      }
+
+      .header .header-toggle {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 0;
+      }
+
+      .navmenu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-mobile-background-color);
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+
+      .navmenu.show {
+        display: block;
+      }
+
+      .navmenu ul {
+        width: 100%;
+      }
+
+      .navmenu a,
+      .navmenu a:focus {
+        max-width: 100%;
+        height: auto;
+        padding: 12px 20px;
+        justify-content: center;
+      }
+
+      .navmenu a span {
+        display: inline;
+      }
+
+      .navmenu a i {
+        margin-right: 10px;
+      }
+
+      main {
+        margin-top: 70px !important;
+      }
+
+      .hero-top-social {
+        position: fixed;
+        top: 80px;
+        right: 15px;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 10px 12px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 998;
+      }
+
+      .hero-top-social a {
+        font-size: 24px;
+      }
+
+      .hero .row.align-items-center {
+        flex-direction: column-reverse;
+      }
+
+      .hero-content {
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .hero-profile-container {
+        margin-bottom: 40px;
+      }
+
+      .hero-profile-img-full {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        left: 0;
+        position: static;
+      }
+
+      .hero-backdrop {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+      }
+
+      .social-links a {
+        font-size: 24px;
+        margin-right: 15px;
+      }
+
+      .resume-btn {
+        padding: 15px 40px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-top-social {
+        top: 70px;
+        right: 10px;
+        gap: 10px;
+        padding: 8px;
+      }
+
+      .hero-top-social a {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex flex-column justify-content-center">
+  <header id="header" class="header d-flex align-items-center justify-content-center">
 
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
@@ -64,7 +207,7 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+        <li><a href="#contact" style="display:none;"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
       </ul>
     </nav>
 
@@ -74,34 +217,53 @@
 
 
 
-    <section id="hero" class="hero section light-background">
+    <section id="hero" class="hero section">
 
-      <img src="assets/img/hero-bg.jpg" alt="">
+      <!-- Top Right Social Icons -->
+      <div class="hero-top-social">
+        <a href="https://www.instagram.com/shaheer_ul_islam/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
+            class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/923154105317"><i class="bi bi-whatsapp"></i></a>
+      </div>
+
+      <canvas id="neuro-network"></canvas>
 
       <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <h2>Shaheer Ul Islam</h2>
-            <p>I'm <span class="typed"
-                data-typed-items="Web Developer, Python Developer, Data Scientist, AI Engineer">Designer</span><span
-                class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+          <div class="col-lg-12">
+            <div class="row align-items-center">
+              <!-- Text Content (Left Side) -->
+              <div class="col-lg-6 hero-content" data-aos="fade-right">
+                <h2 class="animated-text">Shaheer Ul Islam</h2>
+                <p class="animated-text-delay">I'm <span class="typed"
+                    data-typed-items="Web Developer, Python Developer, Data Scientist, AI Engineer">Designer</span><span
+                    class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
 
-            <div class="social-links">
-              <a href="https://github.com/shaheer-ul-islam" target="_blank"><i class="bi bi-github"></i></a>
-              <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
-                  class="bi bi-linkedin"></i></a>
-              <a href="https://www.instagram.com/shaheer_ul_islam/" target="_blank"><i class="bi bi-instagram"></i></a>
-              <!-- <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a> -->
+                <div class="social-links mt-3">
+                  <a href="https://github.com/shaheer-ul-islam" target="_blank"><i class="bi bi-github"></i></a>
+                  <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
+                      class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/shaheer_ul_islam/" target="_blank"><i
+                      class="bi bi-instagram"></i></a>
+                </div>
+
+                <!-- Resume Download Button -->
+                <div class="mt-4">
+                  <a href="assets/img/portfolio/Shaheer.pdf" download class="btn resume-btn">
+                    <i class="bi bi-download"></i> Download Resume
+                  </a>
+                </div>
+              </div>
+
+              <!-- Profile Image (Right Side) -->
+              <div class="col-lg-6 text-center position-relative" data-aos="fade-left">
+                <div class="hero-backdrop"></div>
+                <div class="hero-profile-container">
+                  <img src="assets/img/hero-bg - Edited.png" alt="Shaheer Ul Islam" class="hero-profile-img-full">
+                </div>
+              </div>
             </div>
-
-
-            <!-- Resume Download Button -->
-            <div class="mt-4">
-              <a href="assets/img/portfolio/Shaheer.pdf" download class="btn resume-btn" target="_blank">
-                  <i class="bi bi-download"></i> Download Resume
-              </a>
-          </div>
-
           </div>
         </div>
       </div>
@@ -110,17 +272,15 @@
 
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about section section-white">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>About</h2>
-        <p>I am a final-year Artificial Intelligence student at Hazara University
-          with expertise in Machine Learning, Deep Learning, and Web
-          Development.I aim to contribute to cutting-edge projects and pursue
-          research excellence in the field. My technical skill set includes Python,
-          Django, Flask, PyTorch, and scikit-learn, with a focus on leveraging AI
-          and ML for impactful solutions.</p>
+        <p>I am a fresh graduate in Artificial Intelligence from Hazara University with expertise in Machine Learning,
+          Deep Learning, and full-stack web development. I specialize in building AI-powered applications using Python,
+          Django, Flask, PyTorch, and scikit-learn, and I am eager to contribute to impactful, research-driven AI
+          projects.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -151,7 +311,8 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>22</span></li>
 
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
-                    <span>work.shaheerulislam@gmail.com</span></li>
+                    <span>work.shaheerulislam@gmail.com</span>
+                  </li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
                 </ul>
               </div>
@@ -211,427 +372,916 @@
     </section> -->
 
     <!-- Skills Section -->
-    <section id="skills" class="skills section">
+    <section id="skills" class="skills section section-gray">
+      <canvas id="laser-canvas"></canvas><!-- Laser Flow Background -->
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
 
-      </div><!-- End Section Title -->
+        <!-- ... -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Scripts -->
+        <script src="assets/js/cursor.js"></script>
+        <script src="assets/js/theme-scroll.js"></script>
+        <script src="assets/js/resume-effects.js"></script>
+        <script src="assets/js/laser-background.js"></script>
+</body>
+<h2>Skills</h2>
 
-        <div class="row skills-content skills-animation">
+</div><!-- End Section Title -->
 
-          <div class="col-lg-6">
+<div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="progress">
-              <span class="skill"><span>Machine Learning & Deep Learning</span> <i class="val">82%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div><!-- End Skills Item -->
+  <div class="row skills-content skills-animation">
 
-            <div class="progress">
-              <span class="skill"><span>Large Language Models</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div><!-- End Skills Item -->
+    <div class="col-lg-6">
 
-            <div class="progress">
-              <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div><!-- End Skills Item -->
-
+      <div class="progress">
+        <span class="skill"><span>Machine Learning & Deep Learning</span> <i class="val">82%</i></span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
           </div>
+        </div>
+      </div><!-- End Skills Item -->
 
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Web Development (Django, Flask)</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Python, PyTorch, scikit-learn</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Data Analysis & Visualization</span> <i class="val">65%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div><!-- End Skills Item -->
-
+      <div class="progress">
+        <span class="skill"><span>Large Language Models</span> <i class="val">75%</i></span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
           </div>
+        </div>
+      </div><!-- End Skills Item -->
+
+      <div class="progress">
+        <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div><!-- End Skills Item -->
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <div class="progress">
+        <span class="skill"><span>Web Development (Django, Flask, PHP)</span> <i class="val">80%</i></span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div><!-- End Skills Item -->
+
+      <div class="progress">
+        <span class="skill"><span>Python, PyTorch, scikit-learn</span> <i class="val">90%</i></span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div><!-- End Skills Item -->
+
+      <div class="progress">
+        <span class="skill"><span>Data Analysis & Visualization</span> <i class="val">65%</i></span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div><!-- End Skills Item -->
+
+    </div>
+
+  </div>
+
+</div>
+
+</section><!-- /Skills Section -->
+
+<!-- Resume Section -->
+<section id="resume" class="resume section section-dark">
+  '
+
+  <div class="resume-floating-logos" id="resumeLogosOverlay">
+    <div class="programming-logo" style="color:#3776AB;"><i class="bi bi-file-earmark-code"></i> <!-- Python --></div>
+    <div class="programming-logo" style="color:#777BB4;"><i class="bi bi-filetype-php"></i></div>
+    <div class="programming-logo" style="color:#1572B6;"><i class="bi bi-filetype-css"></i></div>
+    <div class="programming-logo" style="color:#F06529;"><i class="bi bi-filetype-html"></i></div>
+    <div class="programming-logo" style="color:#FF2D20;"><i class="bi bi-bar-chart"></i> <!-- Progress/Chart --></div>
+    <div class="programming-logo" style="color:#00D084;"><i class="bi bi-cpu"></i> <!-- AI/ML --></div>
+    <!-- New Logos -->
+    <div class="programming-logo" style="color:#092E20;"><i class="devicon-django-plain"></i></div>
+    <div class="programming-logo" style="color:#F7931E;"><i class="devicon-scikitlearn-plain"></i></div>
+    <div class="programming-logo" style="color:#FF6F00;"><i class="devicon-tensorflow-original"></i></div>
+  </div>
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2 class="scramble-target">Resume</h2>
+    <p>Passionate AI researcher and developer with expertise in Machine Learning, Deep Learning, and Web
+      Development. Focused on leveraging AI for real-world solutions and contributing to cutting-edge research.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="resume-title scramble-target">Summary</h3>
+
+        <div class="resume-item pb-0">
+          <h4>Shaheer Ul Islam</h4>
+          <p><em>Innovative AI researcher and developer specializing in Machine Learning, Deep Learning, and Web
+              Development. Experienced in building AI-powered solutions and optimizing ML models.</em></p>
+          <ul>
+            <li>Mansehra, Pakistan</li>
+            <li>+92 315 410 5317</li>
+            <li>work.shaheerulislam@gmail.com</li>
+          </ul>
+        </div><!-- End Resume Item -->
+
+        <h3 class="resume-title scramble-target">Education</h3>
+        <div class="resume-item">
+          <h4>Intermediate</h4>
+          <h5>2019 - 2021</h5>
+          <p><em>Noor School & College, Mansehra</em></p>
+          <p>Focused on foundational engineering, computer science, physics, and mathematics.</p>
+        </div><!-- End Resume Item -->
+
+        <div class="resume-item">
+          <h4>Bachelor of Science in Artificial Intelligence</h4>
+          <h5>2021 - 2025</h5>
+          <p><em>Hazara University, Mansehra, Pakistan</em></p>
+          <p>Specializing in Machine Learning, Neural Networks, Generative AI, and Web Development. Worked on
+            projects like:</p>
+          <ul>
+            <li>MCQ Generation & Video Summarization</li>
+            <li>Image-to-Story Conversion & Sentiment Analysis System</li>
+            <li>Pakistan House Price Prediction</li>
+          </ul>
+        </div><!-- End Resume Item -->
+
+
+        <h3 class="resume-title scramble-target">Certifications</h3>
+        <div class="resume-item">
+          <h4>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/HY5YEBA7KU27" target="_blank"
+              rel="noopener noreferrer">
+              IBM Machine Learning Professional Certificate
+            </a>
+          </h4>
+          <p><em>Coursera</em> | Completed December 23, 2024</p>
+          <ul>
+            <li>Exploratory Data Analysis for Machine Learning</li>
+            <li>Supervised Machine Learning: Regression</li>
+            <li>Supervised Machine Learning: Classification</li>
+            <li>Unsupervised Machine Learning</li>
+            <li>Deep Learning and Reinforcement Learning</li>
+            <li>Machine Learning Capstone</li>
+          </ul>
+        </div>
+        <div class="resume-item">
+          <h4>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/HSHOFJS9X19W" target="_blank"
+              rel="noopener noreferrer">
+              Google IT Support Professional Certificate
+            </a>
+          </h4>
+          <p><em>Coursera</em> | Completed January 5, 2025</p>
+          <ul>
+            <li>Technical Support Fundamentals</li>
+            <li>The Bits and Bytes of Computer Networking</li>
+            <li>Operating Systems and You: Becoming a Power User</li>
+            <li>System Administration and IT Infrastructure Services</li>
+            <li>IT Security: Defense Against the Digital Dark Arts</li>
+          </ul>
 
         </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="resume-title scramble-target">Professional Experience</h3>
+
+        <div class="resume-item">
+          <h4>Machine Learning Intern</h4>
+          <h5>01/2025 - 03/2025</h5>
+          <p><em>InterIntelligence, Pakistan</em></p>
+          <ul>
+            <li>Developed and optimized machine learning models for AI solutions.</li>
+            <li>Conducted data preprocessing, feature engineering, and model evaluation.</li>
+            <li>Collaborated with researchers to fine-tune models using PyTorch and scikit-learn.</li>
+            <li>Implemented transfer learning techniques for computer vision applications.</li>
+            <li>Presented progress reports on model accuracy and performance.</li>
+          </ul>
+        </div><!-- End Resume Item -->
+
+        <div class="resume-item">
+          <h4>Intern / Project Associate</h4>
+          <h5>08/2025 - 12/2025</h5>
+          <p><em>PERFORMANCE MANAGEMENT & REFORM UNIT (PMRU)</em></p>
+          <ul>
+            <li>Designed and implemented a Retrieval-Augmented Generation (RAG)-based Chatbot for efficient task
+              management and reporting</li>
+            <li>Developed and deployed a web-based testing platform to streamline online assessments and result
+              management</li>
+            <li>Collaborated with the backend team to integrate AI driven features and optimize workflows</li>
+          </ul>
+        </div><!-- End Resume Item -->
+
+
+
+        <h3 class="resume-title scramble-target">Achievements</h3>
+        <div class="resume-item">
+          <h4>
+            <a href="https://drive.google.com/file/d/16LqDKo5P2U_LHRh2af2sARVxakQYagq-/view?usp=sharing" target="_blank"
+              rel="noopener noreferrer">
+              Runner-up, Youth Robo Tech (YRT) 2024
+            </a>
+          </h4>
+
+
+          <h5>Arduino Futsal & Off-Roading</h5>
+          <p><em>National Robotics Competition</em></p>
+          <ul>
+            <li>Designed and programmed autonomous robots for Futsal and Off-Roading.</li>
+            <li>Secured 3rd place in a competitive national-level robotics event.</li>
+          </ul>
+        </div><!-- End Resume Item -->
+        <div class="resume-item">
+          <h4>
+            <a href="https://drive.google.com/file/d/1bA2ftACnbADzDjy0CEkHXtLA3VQpT33u/view?usp=drive_link"
+              target="_blank" rel="noopener noreferrer">
+              Participant, Youth Robo Tech (YRT) 2025
+            </a>
+          </h4>
+
+
+          <h5>Arduino Programming</h5>
+          <p><em>National Robotics Competition</em></p>
+          <ul>
+            <li>Designed and programmed autonomous robots for Futsal and Off-Roading challenges.</li>
+            <li>Assisted junior team members in robot assembly, Arduino programming, and debugging.</li>
+          </ul>
+
+
+        </div>
+
 
       </div>
 
-    </section><!-- /Skills Section -->
+</section><!-- /Resume Section -->
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Passionate AI researcher and developer with expertise in Machine Learning, Deep Learning, and Web
-          Development. Focused on leveraging AI for real-world solutions and contributing to cutting-edge research.</p>
-      </div><!-- End Section Title -->
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio section">
 
-      <div class="container">
-        <div class="row">
+  <!-- Section Title -->
+  <section id="portfolio" class="portfolio section section-white">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Portfolio</h2>
+      <p>Featured Projects & Recent Work</p>
+    </div><!-- End Section Title -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Summary</h3>
+    <div class="container">
+      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-            <div class="resume-item pb-0">
-              <h4>Shaheer Ul Islam</h4>
-              <p><em>Innovative AI researcher and developer specializing in Machine Learning, Deep Learning, and Web
-                  Development. Experienced in building AI-powered solutions and optimizing ML models.</em></p>
-              <ul>
-                <li>Mansehra, Pakistan</li>
-                <li>+92 315 410 5317</li>
-                <li>work.shaheerulislam@gmail.com</li>
-              </ul>
-            </div><!-- End Resume Item -->
+        <div class="portfolio-filters-wrapper">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">
+              <span class="filter-icon"><i class="bi bi-grid-3x3-gap"></i></span>
+              <span class="filter-text">All</span>
+            </li>
+            <li data-filter=".filter-ml">
+              <span class="filter-icon"><i class="bi bi-cpu"></i></span>
+              <span class="filter-text">Machine Learning</span>
+            </li>
+            <li data-filter=".filter-web">
+              <span class="filter-icon"><i class="bi bi-code-slash"></i></span>
+              <span class="filter-text">Web Development</span>
+            </li>
+            <li data-filter=".filter-gen">
+              <span class="filter-icon"><i class="bi bi-magic"></i></span>
+              <span class="filter-text">Generative AI</span>
+            </li>
+          </ul><!-- End Portfolio Filters -->
+        </div>
 
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Intermediate</h4>
-              <h5>2019 - 2021</h5>
-              <p><em>Noor School & College, Mansehra</em></p>
-              <p>Focused on foundational engineering, computer science, physics, and mathematics.</p>
-            </div><!-- End Resume Item -->
+        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="resume-item">
-              <h4>Bachelor of Science in Artificial Intelligence</h4>
-              <h5>2021 - 2025</h5>
-              <p><em>Hazara University, Mansehra, Pakistan</em></p>
-              <p>Specializing in Machine Learning, Neural Networks, Generative AI, and Web Development. Worked on
-                projects like:</p>
-              <ul>
-                <li>MCQ Generation & Video Summarization</li>
-                <li>Image-to-Story Conversion & Sentiment Analysis System</li>
-                <li>Pakistan House Price Prediction</li>
-              </ul>
-            </div><!-- End Resume Item -->
+          <!-- E-commerce Platform (Django) -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="50">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/Ecom.png" class="img-fluid portfolio-image" alt="E-commerce Platform">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>E-commerce Platform (Django)</h4>
+              <p>Built a full-fledged e-commerce site using Django, featuring secure authentication, payment
+                integration, and admin management.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">Django</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">PostgreSQL</span>
+              </div>
+              <a href="assets/img/portfolio/Ecom.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="View Details"><i
+                  class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
 
-          </div>
+          <!-- Art Gallery with Multi-User Authentication -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/Art Gallery.png" class="img-fluid portfolio-image" alt="Art Gallery">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Art Gallery with Multi-User Authentication</h4>
+              <p>Developed an online art gallery with Django, enabling role-based authentication and secure image
+                uploads.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">Django</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Bootstrap</span>
+              </div>
+              <a href="assets/img/portfolio/Art Gallery.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="https://www.linkedin.com/posts/shaheer-ul-islam-a135b2290_zrock-webdevelopment-django-activity-7227983881960886272-mr9h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaRSi8BSpLkfZquzez30qdtW_bIFKUwy78"
+                class="details-link" target="_blank" title="View Project"><i class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
+          <!-- Anomaly Detection Dashboard (ML/DL) -->
 
-            <div class="resume-item">
-              <h4>Machine Learning Intern</h4>
-              <h5>2025 - Present</h5>
-              <p><em>InterIntelligence, Pakistan</em></p>
-              <ul>
-                <li>Developed and optimized machine learning models for AI solutions.</li>
-                <li>Conducted data preprocessing, feature engineering, and model evaluation.</li>
-                <li>Collaborated with researchers to fine-tune models using PyTorch and scikit-learn.</li>
-                <li>Implemented transfer learning techniques for computer vision applications.</li>
-                <li>Presented progress reports on model accuracy and performance.</li>
-              </ul>
-            </div><!-- End Resume Item -->
 
-            <h3 class="resume-title">Achievements</h3>
-            <div class="resume-item">
-              <h4>Runner-up, Youth Robo Tech YRT 2024</h4>
 
-              <h5>Arduino Futsal & Off-Roading</h5>
-              <p><em>National Robotics Competition</em></p>
-              <ul>
-                <li>Designed and programmed autonomous robots for Futsal and Off-Roading.</li>
-                <li>Secured 3nd place in a competitive national-level robotics event.</li>
-                <li>Collaborated on AI-driven movement optimization and decision-making.</li>
-              </ul>
-            </div><!-- End Resume Item -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gen" data-aos="fade-up" data-aos-delay="150">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/Vide.png" class="img-fluid portfolio-image" alt="Video Summarization">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Video Summarization & Flashcards</h4>
+              <p>Extract key insights, generate summaries, and create interactive flashcards from videos.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">AI/ML</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">NLP</span>
+              </div>
+              <a href="assets/img/portfolio/vide.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="video-summary-details.html" class="details-link" title="View Details"><i
+                  class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
 
-          </div>
 
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gen" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/vision.png" class="img-fluid portfolio-image" alt="Gemini Image QA">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Gemini Image-Based QA</h4>
+              <p>Upload an image and ask questions about it using Google's Gemini AI.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">Gemini AI</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Vision AI</span>
+              </div>
+              <a href="assets/img/portfolio/vision.png" class="glightbox preview-link" title="View Screenshot">
+                <i class="bi bi-zoom-in"></i>
+              </a>
+              <a href="gemini-qa-details.html" class="details-link" title="View Details">
+                <i class="bi bi-link-45deg"></i>
+              </a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml" data-aos="fade-up" data-aos-delay="250">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/Picture1.png" class="img-fluid portfolio-image" alt="Anomaly Detection">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Anomaly Detection Dashboard</h4>
+              <p>Built a real-time anomaly detection system using machine learning and Streamlit, featuring
+                time-series visualization.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">ML</span>
+                <span class="tech-badge">Streamlit</span>
+                <span class="tech-badge">Python</span>
+              </div>
+              <a href="assets/img/portfolio/Picture1.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="View Details"><i
+                  class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+          <!-- AI-Powered Resume Parser (ML/DL) -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml" data-aos="fade-up" data-aos-delay="300">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/CIFAR-10.png" class="img-fluid portfolio-image"
+                alt="CIFAR-10 Image Classifier">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>CIFAR-10 Image Classifier</h4>
+              <p>Developed a deep learning-based image classifier trained on the CIFAR-10 dataset, leveraging
+                convolutional neural networks (CNNs) for accurate predictions.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">Deep Learning</span>
+                <span class="tech-badge">CNN</span>
+                <span class="tech-badge">PyTorch</span>
+              </div>
+              <a href="assets/img/portfolio/CIFAR-10.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="https://huggingface.co/spaces/shaheerulislam/CIFAR-IO-image-Classifier" class="details-link"
+                target="_blank" title="View Live Demo"><i class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+
+
+          <!-- Wine Quality Prediction (ML) -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml" data-aos="fade-up" data-aos-delay="350">
+            <div class="portfolio-image-wrapper">
+              <video class="img-fluid portfolio-image" controls>
+                <source src="assets/videos/0316.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-play-circle"></i>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Wine Quality Prediction</h4>
+              <p>Built an ML model to predict wine quality using scikit-learn, analyzing key chemical properties for
+                classification.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">ML</span>
+                <span class="tech-badge">scikit-learn</span>
+                <span class="tech-badge">Python</span>
+              </div>
+              <a href="assets/videos/0316.mp4" class="glightbox preview-link" title="Watch Video"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="https://github.com/shaheer-ul-islam/Wine-Quality-ML-Project-Wnd-to-End" class="details-link"
+                target="_blank" title="View on GitHub"><i class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+          <!-- Home Made Kitchen - PHP Food Delivery System -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="400">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/online hmd.png" class="img-fluid portfolio-image" alt="Home Made Kitchen">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Home Made Kitchen - Food Delivery System</h4>
+              <p>PHP-based multi-user food delivery platform with role-based access for Admin, Delivery Boy, Kitchen,
+                and Customer. Features real-time order tracking, payment integration, and comprehensive dashboard
+                management.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <a href="assets/img/portfolio/online hmd.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="https://onlinehmd.com/" class="details-link" target="_blank" title="Visit Website"><i
+                  class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+          <!-- EasyMart - E-commerce Store -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="450">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/easymart.png" class="img-fluid portfolio-image" alt="EasyMart E-commerce">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>EasyMart - E-commerce Platform</h4>
+              <p>Full-featured e-commerce store with product catalog, shopping cart, user authentication, and secure
+                checkout. Includes admin panel for inventory management and order processing.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">Bootstrap</span>
+              </div>
+              <a href="assets/img/portfolio/easymart.png" class="glightbox preview-link" title="View Screenshot"><i
+                  class="bi bi-zoom-in"></i></a>
+              <a href="http://easymart.pk/" class="details-link" target="_blank" title="Visit Website"><i
+                  class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+          <!-- Niamat Shoes Shop - E-commerce -->
+          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="500">
+            <div class="portfolio-image-wrapper">
+              <img src="assets/img/portfolio/naimat shoes desktop.png" class="img-fluid portfolio-image"
+                alt="Niamat Shoes Shop">
+              <div class="portfolio-overlay"></div>
+              <div class="portfolio-hover-content">
+                <i class="bi bi-arrow-right-circle"></i>
+                <span>View Project</span>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h4>Niamat Shoes Shop - E-commerce Store</h4>
+              <p>Specialized footwear e-commerce platform with category filtering, size/color selection, product search,
+                and responsive design. Features user accounts, wishlist, and order management system.</p>
+              <div class="portfolio-tech-stack">
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">jQuery</span>
+              </div>
+              <a href="assets/img/portfolio/naimat shoes desktop.png" class="glightbox preview-link"
+                title="View Screenshot"><i class="bi bi-zoom-in"></i></a>
+              <a href="https://niamatshoes.com/" class="details-link" target="_blank" title="Visit Website"><i
+                  class="bi bi-link-45deg"></i></a>
+            </div>
+          </div><!-- End Portfolio Item -->
+
+
+
+        </div><!-- End Portfolio Container -->
+      </div>
+    </div>
+  </section><!-- /Portfolio Section -->
+
+
+  <!-- Services Section -->
+  <section id="services" class="services section section-gray">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <div class="terminal-header">
+        <div class="terminal-controls">
+          <span class="terminal-btn terminal-btn-close"></span>
+          <span class="terminal-btn terminal-btn-minimize"></span>
+          <span class="terminal-btn terminal-btn-maximize"></span>
+        </div>
+        <div class="terminal-title">
+          <span class="terminal-prompt">$</span>
+          <span class="terminal-text">shaheer@portfolio:~$ services --list</span>
         </div>
       </div>
+      <h2 class="terminal-style-heading">
+        <span class="terminal-prompt">></span> Services
+      </h2>
+      <p class="terminal-description">
+        <span class="terminal-comment">// I specialize in delivering AI-driven solutions tailored to diverse
+          industries.</span><br>
+        <span class="terminal-comment">// My expertise spans machine learning, deep learning, and web
+          development.</span>
+      </p>
+    </div><!-- End Section Title -->
 
-    </section><!-- /Resume Section -->
+    <div class="container">
 
+      <div class="row gy-4">
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <section id="portfolio" class="portfolio section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Portfolio</h2>
-          <p>Showcasing a range of AI, Machine Learning, and Web Development projects, each designed to solve real-world
-            problems using state-of-the-art technology.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-          <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-            <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-ml">Machine Learning</li>
-              <li data-filter=".filter-web">Web Development</li>
-              <li data-filter=".filter-gen">Generative AI</li>
-            </ul><!-- End Portfolio Filters -->
-
-            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-              <!-- E-commerce Platform (Django) -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                <img src="assets/img/portfolio/Ecom.png" class="img-fluid" alt="E-commerce Platform">
-                <div class="portfolio-info">
-                  <h4>E-commerce Platform (Django)</h4>
-                  <p>Built a full-fledged e-commerce site using Django, featuring secure authentication, payment
-                    integration, and admin management.</p>
-                  <a href="assets/img/portfolio/Ecom.png" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <!-- Art Gallery with Multi-User Authentication -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                <img src="assets/img/portfolio/Art Gallery.png" class="img-fluid" alt="Art Gallery">
-                <div class="portfolio-info">
-                  <h4>Art Gallery with Multi-User Authentication</h4>
-                  <p>Developed an online art gallery with Django, enabling role-based authentication and secure image
-                    uploads.</p>
-                  <a href="assets/img/portfolio/Art Gallery.png" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="https://www.linkedin.com/posts/shaheer-ul-islam-a135b2290_zrock-webdevelopment-django-activity-7227983881960886272-mr9h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaRSi8BSpLkfZquzez30qdtW_bIFKUwy78"
-                    class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <!-- Anomaly Detection Dashboard (ML/DL) -->
-
-
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gen">>
-                <img src="assets/img/portfolio/Vide.png" class="img-fluid" alt="Video Summarization">
-                <div class="portfolio-info">
-                  <h4>Video Summarization & Flashcards</h4>
-                  <p>Extract key insights, generate summaries, and create interactive flashcards from videos.</p>
-                  <a href="assets/img/portfolio/vide.png" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="video-summary-details.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gen">
-                <img src="assets/img/portfolio/vision.png" class="img-fluid" alt="Gemini Image QA">
-                <div class="portfolio-info">
-                  <h4>Gemini Image-Based QA</h4>
-                  <p>Upload an image and ask questions about it using Google's Gemini AI.</p>
-                  <a href="assets/img/portfolio/vision.png" class="glightbox preview-link">
-                    <i class="bi bi-zoom-in"></i>
-                  </a>
-                  <a href="gemini-qa-details.html" class="details-link">
-                    <i class="bi bi-link-45deg"></i>
-                  </a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                <img src="assets/img/portfolio/Picture1.png" class="img-fluid" alt="Anomaly Detection">
-                <div class="portfolio-info">
-                  <h4>Anomaly Detection Dashboard</h4>
-                  <p>Built a real-time anomaly detection system using machine learning and Streamlit, featuring
-                    time-series visualization.</p>
-                  <a href="assets/img/portfolio/Picture1.png" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <!-- AI-Powered Resume Parser (ML/DL) -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                <img src="assets/img/portfolio/CIFAR-10.png" class="img-fluid" alt="CIFAR-10 Image Classifier">
-                <div class="portfolio-info">
-                  <h4>CIFAR-10 Image Classifier</h4>
-                  <p>Developed a deep learning-based image classifier trained on the CIFAR-10 dataset, leveraging
-                    convolutional neural networks (CNNs) for accurate predictions.</p>
-                  <a href="assets/img/portfolio/CIFAR-10.png" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="https://huggingface.co/spaces/shaheerulislam/CIFAR-IO-image-Classifier" class="details-link"
-                    target="_blank"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-
-
-              <!-- Wine Quality Prediction (ML) -->
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                <video class="img-fluid" controls>
-                  <source src="assets/videos/0316.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <div class="portfolio-info">
-                  <h4>Wine Quality Prediction</h4>
-                  <p>Built an ML model to predict wine quality using scikit-learn, analyzing key chemical properties for
-                    classification.</p>
-                  <a href="assets/videos/wine-quality.mp4" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/shaheer-ul-islam/Wine-Quality-ML-Project-Wnd-to-End" class="details-link"
-                    target="_blank"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-
-
-            </div><!-- End Portfolio Container -->
-          </div>
-        </div>
-      </section><!-- /Portfolio Section -->
-
-
-      <!-- Services Section -->
-      <section id="services" class="services section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Services</h2>
-          <p>I specialize in delivering AI-driven solutions tailored to diverse industries. My expertise spans machine
-            learning, deep learning, and web development, ensuring innovative and scalable implementations that drive
-            impactful results.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-          <div class="row gy-4">
-
-            <!-- AI Model Development -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-item item-cyan position-relative">
+        <!-- AI Model Development -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item item-cyan position-relative terminal-card">
+            <div class="terminal-window">
+              <div class="terminal-window-header">
+                <span class="terminal-window-title">ai_model_dev.py</span>
+                <span class="terminal-window-status">●</span>
+              </div>
+            </div>
+            <div class="service-card-wrapper">
+              <div class="service-icon-wrapper">
                 <div class="icon">
                   <i class="bi bi-cpu"></i>
                 </div>
-                <a href="#" class="stretched-link">
-                  <h3>AI Model Development</h3>
-                </a>
-                <p>Design and develop state-of-the-art AI models for classification, regression, and generative tasks
-                  using deep learning frameworks like PyTorch.</p>
+                <div class="icon-bg"></div>
               </div>
-            </div><!-- End Service Item -->
+              <div class="service-content">
+                <a href="#" class="stretched-link">
+                  <h3>
+                    <span class="terminal-prompt-small">$</span> AI Model Development
+                  </h3>
+                </a>
+                <div class="terminal-code-block">
+                  <span class="terminal-line">
+                    <span class="terminal-keyword">def</span> <span class="terminal-function">develop_ai_model</span>():
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-comment"># PyTorch, TensorFlow, scikit-learn</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-keyword">return</span> <span class="terminal-string">"state-of-the-art
+                      AI"</span>
+                  </span>
+                </div>
+                <p class="terminal-description-text">Design and develop state-of-the-art AI models for classification,
+                  regression, and generative tasks using deep learning frameworks like PyTorch.</p>
+                <div class="service-footer">
+                  <span class="service-link-text terminal-command">
+                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="service-hover-effect"></div>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
 
-            <!-- Computer Vision -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-item item-orange position-relative">
+        <!-- Computer Vision -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item item-orange position-relative terminal-card">
+            <div class="terminal-window">
+              <div class="terminal-window-header">
+                <span class="terminal-window-title">vision_system.sh</span>
+                <span class="terminal-window-status">●</span>
+              </div>
+            </div>
+            <div class="service-card-wrapper">
+              <div class="service-icon-wrapper">
                 <div class="icon">
                   <i class="bi bi-eye"></i>
                 </div>
-                <a href="#" class="stretched-link">
-                  <h3>Computer Vision Solutions</h3>
-                </a>
-                <p>Implement cutting-edge vision solutions for object detection, segmentation, and image classification
-                  to enhance automation and efficiency.</p>
+                <div class="icon-bg"></div>
               </div>
-            </div><!-- End Service Item -->
+              <div class="service-content">
+                <a href="#" class="stretched-link">
+                  <h3>
+                    <span class="terminal-prompt-small">$</span> Computer Vision Solutions
+                  </h3>
+                </a>
+                <div class="terminal-code-block">
+                  <span class="terminal-line">
+                    <span class="terminal-keyword">import</span> <span class="terminal-module">cv2</span>, <span
+                      class="terminal-module">torchvision</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-comment"># Object detection, segmentation</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-function">process_image</span>(<span
+                      class="terminal-string">"input.jpg"</span>)
+                  </span>
+                </div>
+                <p class="terminal-description-text">Implement cutting-edge vision solutions for object detection,
+                  segmentation, and image classification to enhance automation and efficiency.</p>
+                <div class="service-footer">
+                  <span class="service-link-text terminal-command">
+                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="service-hover-effect"></div>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
 
-            <!-- NLP Solutions -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-item item-teal position-relative">
+        <!-- NLP Solutions -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item item-teal position-relative terminal-card">
+            <div class="terminal-window">
+              <div class="terminal-window-header">
+                <span class="terminal-window-title">nlp_engine.py</span>
+                <span class="terminal-window-status">●</span>
+              </div>
+            </div>
+            <div class="service-card-wrapper">
+              <div class="service-icon-wrapper">
                 <div class="icon">
                   <i class="bi bi-chat-left-text"></i>
                 </div>
-                <a href="#" class="stretched-link">
-                  <h3>Natural Language Processing</h3>
-                </a>
-                <p>Develop intelligent NLP applications for sentiment analysis, text generation, and automated customer
-                  support using transformers and deep learning models.</p>
+                <div class="icon-bg"></div>
               </div>
-            </div><!-- End Service Item -->
+              <div class="service-content">
+                <a href="#" class="stretched-link">
+                  <h3>
+                    <span class="terminal-prompt-small">$</span> Natural Language Processing
+                  </h3>
+                </a>
+                <div class="terminal-code-block">
+                  <span class="terminal-line">
+                    <span class="terminal-keyword">from</span> <span class="terminal-module">transformers</span> <span
+                      class="terminal-keyword">import</span> <span class="terminal-module">GPT</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-comment"># Sentiment, generation, chatbots</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-function">analyze_text</span>(<span
+                      class="terminal-string">"input.txt"</span>)
+                  </span>
+                </div>
+                <p class="terminal-description-text">Develop intelligent NLP applications for sentiment analysis, text
+                  generation, and automated customer support using transformers and deep learning models.</p>
+                <div class="service-footer">
+                  <span class="service-link-text terminal-command">
+                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="service-hover-effect"></div>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
 
-            <!-- Web Development -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-item item-red position-relative">
+        <!-- Web Development -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item item-red position-relative terminal-card">
+            <div class="terminal-window">
+              <div class="terminal-window-header">
+                <span class="terminal-window-title">web_app.js</span>
+                <span class="terminal-window-status">●</span>
+              </div>
+            </div>
+            <div class="service-card-wrapper">
+              <div class="service-icon-wrapper">
                 <div class="icon">
                   <i class="bi bi-globe"></i>
                 </div>
-                <a href="#" class="stretched-link">
-                  <h3>Full-Stack Web Development</h3>
-                </a>
-                <p>Build robust web applications using Django, Flask, and modern JavaScript frameworks, ensuring
-                  performance, scalability, and security.</p>
+                <div class="icon-bg"></div>
               </div>
-            </div><!-- End Service Item -->
+              <div class="service-content">
+                <a href="#" class="stretched-link">
+                  <h3>
+                    <span class="terminal-prompt-small">$</span> Full-Stack Web Development
+                  </h3>
+                </a>
+                <div class="terminal-code-block">
+                  <span class="terminal-line">
+                    <span class="terminal-keyword">npm</span> <span class="terminal-command">install</span> django flask
+                    react
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-comment"># Full-stack solutions</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-function">deploy</span>(<span class="terminal-string">"production"</span>)
+                  </span>
+                </div>
+                <p class="terminal-description-text">Build robust web applications using Django, Flask, PHP and modern
+                  JavaScript frameworks, ensuring performance, scalability, and security.</p>
+                <div class="service-footer">
+                  <span class="service-link-text terminal-command">
+                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="service-hover-effect"></div>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
 
-            <!-- AI-Powered Analytics -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-              <div class="service-item item-indigo position-relative">
+        <!-- AI-Powered Analytics -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-item item-indigo position-relative terminal-card">
+            <div class="terminal-window">
+              <div class="terminal-window-header">
+                <span class="terminal-window-title">analytics.py</span>
+                <span class="terminal-window-status">●</span>
+              </div>
+            </div>
+            <div class="service-card-wrapper">
+              <div class="service-icon-wrapper">
                 <div class="icon">
                   <i class="bi bi-graph-up"></i>
                 </div>
-                <a href="#" class="stretched-link">
-                  <h3>AI-Powered Data Analytics</h3>
-                </a>
-                <p>Leverage machine learning techniques to analyze complex datasets, extract insights, and drive
-                  data-informed decision-making.</p>
+                <div class="icon-bg"></div>
               </div>
-            </div><!-- End Service Item -->
+              <div class="service-content">
+                <a href="#" class="stretched-link">
+                  <h3>
+                    <span class="terminal-prompt-small">$</span> AI-Powered Data Analytics
+                  </h3>
+                </a>
+                <div class="terminal-code-block">
+                  <span class="terminal-line">
+                    <span class="terminal-keyword">import</span> <span class="terminal-module">pandas</span>, <span
+                      class="terminal-module">numpy</span>, <span class="terminal-module">sklearn</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-comment"># ML insights & predictions</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-function">analyze</span>(<span class="terminal-string">"dataset.csv"</span>)
+                  </span>
+                </div>
+                <p class="terminal-description-text">Leverage machine learning techniques to analyze complex datasets,
+                  extract insights, and drive data-informed decision-making.</p>
+                <div class="service-footer">
+                  <span class="service-link-text terminal-command">
+                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="service-hover-effect"></div>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
 
-            <!-- AI Consulting -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-              <div class="service-item item-pink position-relative">
+        <!-- AI Consulting -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-item item-pink position-relative terminal-card">
+            <div class="terminal-window">
+              <div class="terminal-window-header">
+                <span class="terminal-window-title">consulting.md</span>
+                <span class="terminal-window-status">●</span>
+              </div>
+            </div>
+            <div class="service-card-wrapper">
+              <div class="service-icon-wrapper">
                 <div class="icon">
                   <i class="bi bi-lightbulb"></i>
                 </div>
-                <a href="#" class="stretched-link">
-                  <h3>AI Consulting & Research</h3>
-                </a>
-                <p>Provide expert guidance on AI strategy, model optimization, and research-driven solutions tailored to
-                  industry needs.</p>
+                <div class="icon-bg"></div>
               </div>
-            </div><!-- End Service Item -->
-
+              <div class="service-content">
+                <a href="#" class="stretched-link">
+                  <h3>
+                    <span class="terminal-prompt-small">$</span> AI Consulting & Research
+                  </h3>
+                </a>
+                <div class="terminal-code-block">
+                  <span class="terminal-line">
+                    <span class="terminal-keyword">git</span> <span class="terminal-command">clone</span> <span
+                      class="terminal-string">ai-strategy</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-comment"># Expert guidance & optimization</span>
+                  </span>
+                  <span class="terminal-line terminal-indent">
+                    <span class="terminal-function">consult</span>(<span class="terminal-string">"your_project"</span>)
+                  </span>
+                </div>
+                <p class="terminal-description-text">Provide expert guidance on AI strategy, model optimization, and
+                  research-driven solutions tailored to industry needs.</p>
+                <div class="service-footer">
+                  <span class="service-link-text terminal-command">
+                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="service-hover-effect"></div>
+            </div>
           </div>
+        </div><!-- End Service Item -->
 
-        </div>
+      </div>
 
-      </section><!-- /Services Section -->
+    </div>
 
-
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>Feel free to reach out with any questions or inquiries!</p>
-        </div><!-- End Section Title -->
+  </section><!-- /Services Section -->
 
 
 
-  </main>
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <h3 class="sitename">Shaheer Ul Islam</h3>
-      <p>Passionate about AI, Machine Learning, and Web Development. Let’s innovate together!</p>
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <!-- Section Title -->
+    <!-- Contact Section Removed -->
 
-      <div class="container">
-        <div class="social-links d-flex justify-content-center">
+    </main>
+    <footer id="footer" class="footer position-relative light-background">
+      <canvas id="footer-neural-network"></canvas>
+
+      <div class="container text-center">
+        <h3 class="sitename">Shaheer Ul Islam</h3>
+        <p>Passionate about AI, Machine Learning, and Web Development. Let’s innovate together!</p>
+
+        <div class="social-links d-flex justify-content-center mt-3">
           <a href="https://github.com/shaheer-ul-islam" target="_blank"><i class="bi bi-github"></i></a>
           <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
               class="bi bi-linkedin"></i></a>
@@ -639,40 +1289,61 @@
           <a href="mailto:work.shaheerulislam@gmail.com"><i class="bi bi-envelope"></i></a>
         </div>
 
-        <div class="container">
-          <div class="copyright">
-            <span>© 2025</span> <strong class="px-1 sitename">Shaheer Ul Islam</strong> <span>All Rights Reserved</span>
-          </div>
-          <div class="credits">
-            Designed by <strong>Shaheer Ul Islam</strong> ❤️</a>
-          </div>
+        <div class="copyright mt-4">
+          <span>© 2025</span> <strong class="px-1 sitename">Shaheer Ul Islam</strong> <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          Designed by <strong>Shaheer Ul Islam</strong> ❤️
         </div>
       </div>
-  </footer>
+    </footer>
 
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923154105317" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
 
-</body>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/network-animation.js"></script>
+
+    <!-- Splash Cursor Effect -->
+    <div id="cursor-dot"></div>
+
+    <!-- Hands Animation Overlay -->
+    <div id="hands-animation">
+      <img src="assets/img/hands/robot-hand.png" class="hand-img hand-robot" alt="Robot Hand">
+      <img src="assets/img/hands/human-hand.png" class="hand-img hand-human" alt="Human Hand">
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/theme-scroll.js"></script>
+    <script src="assets/js/resume-effects.js"></script>
+    <script src="assets/js/resume-logos-animation.js"></script>
+    <script src="assets/js/footer-neural-network.js"></script>
+    <script src="assets/js/laser-flow.js"></script>
+
+    </body>
 
 </html>
