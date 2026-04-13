@@ -2,1348 +2,1088 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Shaheer Ul Islam | AI Engineer & Web Developer</title>
-  <meta name="title" content="Shaheer Ul Islam | AI Engineer & Web Developer">
-  <meta name="description"
-    content="Explore the portfolio of Shaheer Ul Islam, an AI Engineer, Web Developer, and Data Scientist specializing in Machine Learning, Deep Learning, and Web Development.">
-  <meta name="keywords"
-    content="Shaheer Ul Islam, AI Engineer, Web Developer, Machine Learning, Deep Learning, Python Developer, Data Scientist">
-  <meta name="author" content="Shaheer Ul Islam">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Open Graph / Facebook -->
-
-
-  <meta property="og:title" content="Shaheer Ul Islam | AI Engineer & Web Developer">
-  <meta property="og:description"
-    content="Explore the portfolio of Shaheer Ul Islam, an AI Engineer, Web Developer, and Data Scientist specializing in Machine Learning, Deep Learning, and Web Development.">
-  <meta property="og:image" content="https://yourgithubpageslink.com/assets/img/preview.jpg">
-
-  <!-- Twitter Meta Tags -->
-  <meta property="twitter:card" content="summary_large_image">
-
-  <meta property="twitter:title" content="Shaheer Ul Islam | AI Engineer & Web Developer">
-  <meta property="twitter:description"
-    content="Explore the portfolio of Shaheer Ul Islam, an AI Engineer, Web Developer, and Data Scientist specializing in Machine Learning, Deep Learning, and Web Development.">
-
-
-  <!-- Favicons -->
-  <link href="assets/img/S.png" rel="icon">
-  <link href="assets/img/S.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
-  <style>
-    @media (max-width: 1199px) {
-      .header {
-        width: 100%;
-        height: 70px;
-        top: 0;
-        left: 0;
-        bottom: auto;
-        padding: 0;
-        background-color: var(--background-color);
-        border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-        transition: all ease-in-out 0.3s;
-      }
-
-      .header.header-show {
-        left: 0;
-      }
-
-      .header .header-toggle {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        z-index: 0;
-      }
-
-      .navmenu {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: var(--nav-mobile-background-color);
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        display: none;
-      }
-
-      .navmenu.show {
-        display: block;
-      }
-
-      .navmenu ul {
-        width: 100%;
-      }
-
-      .navmenu a,
-      .navmenu a:focus {
-        max-width: 100%;
-        height: auto;
-        padding: 12px 20px;
-        justify-content: center;
-      }
-
-      .navmenu a span {
-        display: inline;
-      }
-
-      .navmenu a i {
-        margin-right: 10px;
-      }
-
-      main {
-        margin-top: 70px !important;
-      }
-
-      .hero-top-social {
-        position: fixed;
-        top: 80px;
-        right: 15px;
-        flex-direction: column;
-        gap: 15px;
-        background: rgba(255, 255, 255, 0.85);
-        padding: 10px 12px;
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 998;
-      }
-
-      .hero-top-social a {
-        font-size: 24px;
-      }
-
-      .hero .row.align-items-center {
-        flex-direction: column-reverse;
-      }
-
-      .hero-content {
-        margin-top: 0;
-        text-align: center;
-      }
-
-      .hero-profile-container {
-        margin-bottom: 40px;
-      }
-
-      .hero-profile-img-full {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        left: 0;
-        position: static;
-      }
-
-      .hero-backdrop {
-        width: 300px;
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 3rem;
-      }
-
-      .hero p {
-        font-size: 1.5rem;
-      }
-
-      .social-links a {
-        font-size: 24px;
-        margin-right: 15px;
-      }
-
-      .resume-btn {
-        padding: 15px 40px;
-        font-size: 20px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .hero-top-social {
-        top: 70px;
-        right: 10px;
-        gap: 10px;
-        padding: 8px;
-      }
-
-      .hero-top-social a {
-        font-size: 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Shaheer Ul Islam - AI Engineer & ML Developer specializing in Machine Learning, NLP, Deep Learning, and Full-Stack Development">
+    <meta name="keywords"
+        content="AI Engineer, Machine Learning, Deep Learning, NLP, Python, Django, PyTorch, TensorFlow">
+    <meta name="author" content="Shaheer Ul Islam">
+    <title>Shaheer Ul Islam | AI Engineer & ML Developer</title>
+    <link rel="icon" type="image/png" href="S.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center justify-content-center">
-
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
-        <li><a href="#contact" style="display:none;"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
-      </ul>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Shaheer</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                <div class="nav-social">
+                    <a href="https://github.com/shaheer-ul-islam" target="_blank" class="nav-social-link"
+                        aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/shaheer-ul-islam" target="_blank" class="nav-social-link"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="nav-social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
     </nav>
 
-  </header>
-
-  <main class="main">
-
-
-
-    <section id="hero" class="hero section">
-
-      <!-- Top Right Social Icons -->
-      <div class="hero-top-social">
-        <a href="https://www.instagram.com/shaheer_ul_islam/" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
-            class="bi bi-linkedin"></i></a>
-        <a href="https://wa.me/923154105317"><i class="bi bi-whatsapp"></i></a>
-      </div>
-
-      <canvas id="neuro-network"></canvas>
-
-      <div class="container" data-aos="zoom-out">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="row align-items-center">
-              <!-- Text Content (Left Side) -->
-              <div class="col-lg-6 hero-content" data-aos="fade-right">
-                <h2 class="animated-text">Shaheer Ul Islam</h2>
-                <p class="animated-text-delay">I'm <span class="typed"
-                    data-typed-items="Web Developer, Python Developer, Data Scientist, AI Engineer">Designer</span><span
-                    class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-
-                <div class="social-links mt-3">
-                  <a href="https://github.com/shaheer-ul-islam" target="_blank"><i class="bi bi-github"></i></a>
-                  <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
-                      class="bi bi-linkedin"></i></a>
-                  <a href="https://www.instagram.com/shaheer_ul_islam/" target="_blank"><i
-                      class="bi bi-instagram"></i></a>
-                </div>
-
-                <!-- Resume Download Button -->
-                <div class="mt-4">
-                  <a href="assets/img/portfolio/Shaheer.pdf" download class="btn resume-btn">
-                    <i class="bi bi-download"></i> Download Resume
-                  </a>
-                </div>
-              </div>
-
-              <!-- Profile Image (Right Side) -->
-              <div class="col-lg-6 text-center position-relative" data-aos="fade-left">
-                <div class="hero-backdrop"></div>
-                <div class="hero-profile-container">
-                  <img src="assets/img/hero-bg - Edited.png" alt="Shaheer Ul Islam" class="hero-profile-img-full">
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
         </div>
-      </div>
-
+        <div class="hero-neurons">
+            <span class="neuron-node node-1"></span>
+            <span class="neuron-node node-2"></span>
+            <span class="neuron-node node-3"></span>
+            <span class="neuron-node node-4"></span>
+            <span class="neuron-link link-1"></span>
+            <span class="neuron-link link-2"></span>
+            <span class="neuron-link link-3"></span>
+        </div>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-dot"></span>
+                    <span>Available for freelance</span>
+                </div>
+                <h1 class="hero-title reveal-up">
+                    Hi, I'm <span class="gradient-text">Shaheer Ul Islam</span>
+                </h1>
+                <div class="hero-subtitle reveal-up">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description reveal-up">
+                    AI graduate specializing in Machine Learning, NLP, Deep Learning, and LLM-based systems
+                    with strong full-stack development experience. Building intelligent solutions that bridge
+                    AI innovation and real-world applications.
+                </p>
+                <div class="hero-cta reveal-up">
+                    <a href="./portfolio/Shaheer.pdf" target="_blank" class="btn btn-primary btn-lg">
+                        <span>My Resume</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline btn-lg">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+                <div class="hero-stats reveal-up">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">AI Models Deployed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
     </section>
 
-
     <!-- About Section -->
-    <section id="about" class="about section section-white">
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">AI Researcher & <span class="gradient-text">Developer</span></h2>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>I am a fresh graduate in Artificial Intelligence from Hazara University with expertise in Machine Learning,
-          Deep Learning, and full-stack web development. I specialize in building AI-powered applications using Python,
-          Django, Flask, PyTorch, and scikit-learn, and I am eager to contribute to impactful, research-driven AI
-          projects.</p>
-      </div><!-- End Section Title -->
+                <!-- About Section Neural Network -->
+                <div class="experience-neurons">
+                    <!-- Layer 1: Subtle Wave -->
+                    <div class="neural-layer layer-1">
+                        <span class="neuron-node tiny n1" style="top: 15%; left: 20%;"></span>
+                        <span class="neuron-node tiny n2" style="top: 10%; left: 50%;"></span>
+                        <span class="neuron-node tiny n3" style="top: 20%; left: 80%;"></span>
+                        <span class="neuron-link tiny l1"
+                            style="top: 17%; left: 20%; width: 30%; transform: rotate(2deg);"></span>
+                        <span class="neuron-link tiny l2"
+                            style="top: 12%; left: 50%; width: 30%; transform: rotate(-1deg);"></span>
+                    </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/profile.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>AI Researcher &amp; Developer.</h2>
-            <p class="fst-italic py-3">
-
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>13 December 2002</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Artificial
-                      Intelligence</span></li>
-
-
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+92 315 410 5317</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Abbottabad ,Pakistan</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>22</span></li>
-
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
-                    <span>work.shaheerulislam@gmail.com</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
+                    <!-- Layer 2: Gentle Orbit -->
+                    <div class="neural-layer layer-2">
+                        <span class="neuron-node small n1" style="top: 70%; left: 15%;"></span>
+                        <span class="neuron-node small n2" style="top: 75%; left: 45%;"></span>
+                        <span class="neuron-node small n3" style="top: 70%; left: 75%;"></span>
+                        <span class="neuron-link small l1"
+                            style="top: 72%; left: 15%; width: 30%; transform: rotate(1deg);"></span>
+                        <span class="neuron-link small l2"
+                            style="top: 77%; left: 45%; width: 30%; transform: rotate(-1deg);"></span>
+                    </div>
+                </div>
             </div>
-            <p class="py-3">
-              🔹 AI Researcher & Developer | ML/DL Enthusiast | Web Innovator
-          </div>
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <div class="image-wrapper">
+                        <img src="./profile.jpg" alt="Shaheer Ul Islam" class="profile-img">
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="about-neurons">
+                        <span class="neuron-node small n1"></span>
+                        <span class="neuron-node small n2"></span>
+                        <span class="neuron-node small n3"></span>
+                        <span class="neuron-link small l1"></span>
+                        <span class="neuron-link small l2"></span>
+                    </div>
+                    <div class="experience-card">
+                        <span class="exp-number">2+</span>
+                        <span class="exp-text">Years of<br>Experience</span>
+                    </div>
+                </div>
+                <div class="about-content reveal-right">
+                    <h3 class="about-heading">Building the future with AI & Code</h3>
+                    <p class="about-text">
+                        I am a fresh graduate in Artificial Intelligence from Hazara University with expertise in
+                        Machine Learning, Deep Learning, and full-stack web development. I specialize in building
+                        AI-powered applications using Python, Django,PHP, Flask, PyTorch, and scikit-learn.
+                    </p>
+                    <p class="about-text">
+                        My passion lies in leveraging AI for real-world solutions and contributing to cutting-edge
+                        research. I'm eager to collaborate on impactful, research-driven AI projects that make a
+                        difference.
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <span class="info-label">Birthday</span>
+                                <span class="info-value">13 December 2002</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <span class="info-label">Degree</span>
+                                <span class="info-value">BS Artificial Intelligence</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">+92 315 410 5317</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="info-label">Email</span>
+                                <span class="info-value">work.shaheerulislam@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="info-label">Location</span>
+                                <span class="info-value">Abbottabad, Pakistan</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span class="info-label">Freelance</span>
+                                <span class="info-value available">Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Hire Me</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                        <div class="social-links">
+                            <a href="https://github.com/shaheer-ul-islam" target="_blank" class="social-link"
+                                aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/shaheer-ul-islam" target="_blank" class="social-link"
+                                aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
+    <!-- Experience Section -->
+    <section id="experience" class="experience section-padding bg-dark" style="position: relative; overflow: hidden;">
+        <!-- Dynamic Artificial Neural Network Animation -->
+        <canvas id="ann-canvas"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; z-index: 0; pointer-events: none;"></canvas>
 
-    </section><!-- /About Section -->
-
-
-    <!-- <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-emoji-smile"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="23" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Happy Clients</p>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="section-header reveal-up">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Experience & <span class="gradient-text">Education</span></h2>
             </div>
-          </div>
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <span class="timeline-date">Aug 2025 - Jan 2026</span>
+                            <h3 class="timeline-title">Intern / Project Associate</h3>
+                            <span class="timeline-company">Performance Management & Reform Unit (PMRU)</span>
+                            <p class="timeline-desc">
+                                Designed and implemented a Retrieval-Augmented Generation (RAG)-based Chatbot for
+                                efficient task management and reporting. Developed and deployed a web-based testing
+                                platform to streamline online assessments and result management.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">RAG</span>
+                                <span class="tag">Chatbot</span>
+                                <span class="tag">Web Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-journal-richtext"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
+                <!-- Experience 2 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <span class="timeline-date">Jan 2025 - Mar 2025</span>
+                            <h3 class="timeline-title">Machine Learning Intern</h3>
+                            <span class="timeline-company">InterIntelligence, Pakistan</span>
+                            <p class="timeline-desc">
+                                Developed and optimized machine learning models for AI solutions. Conducted data
+                                preprocessing, feature engineering, and model evaluation. Implemented transfer
+                                learning techniques for computer vision applications.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">Transfer Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <span class="timeline-date">2021 - 2025</span>
+                            <h3 class="timeline-title">BS Artificial Intelligence</h3>
+                            <span class="timeline-company">Hazara University, Mansehra</span>
+                            <p class="timeline-desc">
+                                Specialized in Machine Learning, Neural Networks, Generative AI, and Web Development.
+                                Completed projects including MCQ Generation & Video Summarization, Image-to-Story
+                                Conversion,
+                                and Pakistan House Price Prediction.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Deep Learning</span>
+                                <span class="tag">Generative AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification 1 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <span class="timeline-date">Dec 2024</span>
+                            <h3 class="timeline-title">IBM Machine Learning Professional Certificate</h3>
+                            <span class="timeline-company">Coursera</span>
+                            <p class="timeline-desc">
+                                Comprehensive certification covering EDA, Supervised Learning (Regression &
+                                Classification),
+                                Unsupervised Learning, Deep Learning, and Reinforcement Learning.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">IBM</span>
+                                <span class="tag">ML Professional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-card achievement-card">
+                            <span class="timeline-date">2024</span>
+                            <h3 class="timeline-title">Runner-up, Youth Robo Tech (YRT)</h3>
+                            <span class="timeline-company">National Robotics Competition</span>
+                            <p class="timeline-desc">
+                                Designed and programmed autonomous robots for Futsal and Off-Roading challenges.
+                                Secured 3rd place in a competitive national-level robotics event.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Robotics</span>
+                                <span class="tag">Arduino</span>
+                                <span class="tag">Competition</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-headset"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-people"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hard Workers</p>
-            </div>
-          </div>
-
         </div>
+    </section>
 
-      </div>
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
 
-    </section> -->
+                <!-- Projects Section Neural Network -->
+                <div class="experience-neurons">
+                    <!-- Layer 1: Creative Flow -->
+                    <div class="neural-layer layer-1">
+                        <span class="neuron-node tiny n1" style="top: 10%; left: 10%;"></span>
+                        <span class="neuron-node tiny n2" style="top: 5%; left: 35%;"></span>
+                        <span class="neuron-node tiny n3" style="top: 15%; left: 60%;"></span>
+                        <span class="neuron-node tiny n4" style="top: 10%; left: 85%;"></span>
+                        <span class="neuron-link tiny l1"
+                            style="top: 12%; left: 10%; width: 25%; transform: rotate(3deg);"></span>
+                        <span class="neuron-link tiny l2"
+                            style="top: 7%; left: 35%; width: 25%; transform: rotate(-2deg);"></span>
+                        <span class="neuron-link tiny l3"
+                            style="top: 17%; left: 60%; width: 25%; transform: rotate(4deg);"></span>
+                    </div>
+
+                    <!-- Layer 2: Innovation Circuit -->
+                    <div class="neural-layer layer-2">
+                        <span class="neuron-node small n1" style="top: 85%; left: 5%;"></span>
+                        <span class="neuron-node small n2" style="top: 80%; left: 30%;"></span>
+                        <span class="neuron-node small n3" style="top: 85%; left: 55%;"></span>
+                        <span class="neuron-node small n4" style="top: 80%; left: 80%;"></span>
+                        <span class="neuron-link small l1"
+                            style="top: 87%; left: 5%; width: 25%; transform: rotate(1deg);"></span>
+                        <span class="neuron-link small l2"
+                            style="top: 82%; left: 30%; width: 25%; transform: rotate(-1deg);"></span>
+                        <span class="neuron-link small l3"
+                            style="top: 87%; left: 55%; width: 25%; transform: rotate(2deg);"></span>
+                    </div>
+
+                    <!-- Layer 3: Project Sparks -->
+                    <div class="neural-layer layer-3">
+                        <span class="neuron-node medium n1" style="top: 45%; left: 25%;"></span>
+                        <span class="neuron-node medium n2" style="top: 40%; left: 75%;"></span>
+                        <span class="neuron-link medium l1"
+                            style="top: 47%; left: 25%; width: 50%; transform: rotate(1deg);"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons reveal-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="ai">Generative AI</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Resume -->
+                <!-- <div class="project-card reveal-up" data-category="all">
+                    <div class="project-image">
+                        <div class="project-placeholder gradient-1">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="./portfolio/Shaheer.pdf" target="_blank" class="project-link" aria-label="View Resume">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="./portfolio/Shaheer.pdf" download class="project-link" aria-label="Download Resume">
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Resume</span>
+                            <span class="tag">CV</span>
+                            <span class="tag">Portfolio</span>
+                        </div>
+                        <h3 class="project-title">My Resume</h3>
+                        <p class="project-desc">
+                            Download or view my professional resume showcasing AI engineering expertise, 
+                            machine learning projects, and full-stack development experience.
+                        </p>
+                    </div>
+                </div> -->
+
+                <!-- Project 1: RAG Chatbot -->
+                <div class="project-card reveal-up" data-category="ai">
+                    <div class="project-image">
+                        <img src="./portfolio/vision.png" alt="RAG Chatbot" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">LangChain</span>
+                            <span class="tag">LLM</span>
+                            <span class="tag">RAG</span>
+                        </div>
+                        <h3 class="project-title">RAG-based Chatbot</h3>
+                        <p class="project-desc">
+                            Intelligent chatbot using Retrieval-Augmented Generation for efficient task management
+                            and reporting with context-aware responses.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Video Summarization -->
+                <div class="project-card reveal-up" data-category="ai">
+                    <div class="project-image">
+                        <img src="./portfolio/Vide.png" alt="Video Summarization" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">AI/ML</span>
+                        </div>
+                        <h3 class="project-title">Video Summarization & Flashcards</h3>
+                        <p class="project-desc">
+                            Extract key insights, generate summaries, and create interactive flashcards from videos
+                            using advanced NLP techniques.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3: CIFAR-10 Classifier -->
+                <div class="project-card reveal-up" data-category="ml">
+                    <div class="project-image">
+                        <img src="./portfolio/CIFAR-10.png" alt="CIFAR-10 Classifier" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">CNN</span>
+                            <span class="tag">PyTorch</span>
+                        </div>
+                        <h3 class="project-title">CIFAR-10 Image Classifier</h3>
+                        <p class="project-desc">
+                            Deep learning-based image classifier trained on CIFAR-10 dataset using convolutional
+                            neural networks for accurate predictions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4: E-commerce Platform -->
+                <div class="project-card reveal-up" data-category="web">
+                    <div class="project-image">
+                        <img src="./portfolio/Ecom.png" alt="E-commerce Platform" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Sqlite</span>
+                        </div>
+                        <h3 class="project-title">E-commerce Platform</h3>
+                        <p class="project-desc">
+                            Full-fledged e-commerce site with secure authentication, payment integration,
+                            admin management, and real-time order tracking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 5: Art Gallery -->
+                <div class="project-card reveal-up" data-category="web">
+                    <div class="project-image">
+                        <img src="./portfolio/Art Gallery.png" alt="Art Gallery" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">Authentication</span>
+                        </div>
+                        <h3 class="project-title">Art Gallery Platform</h3>
+                        <p class="project-desc">
+                            Online art gallery with role-based authentication and secure image uploads,
+                            enabling artists to showcase and sell their work.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 6: Gemini QA -->
+                <!-- <div class="project-card reveal-up" data-category="ai">
+                    <div class="project-image">
+                        <img src="./portfolio/Picture1.png" alt="Gemini Image-Based QA" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Gemini AI</span>
+                            <span class="tag">Vision AI</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <h3 class="project-title">Gemini Image-Based QA</h3>
+                        <p class="project-desc">
+                            Upload an image and ask questions about it using Google's Gemini AI for 
+                            intelligent visual understanding and analysis.
+                        </p>
+                    </div>
+                </div> -->
+
+                <!-- Project 7: Anomaly Detection -->
+                <div class="project-card reveal-up" data-category="ml">
+                    <div class="project-image">
+                        <img src="./portfolio/Picture1.png" alt="Anomaly Detection Dashboard" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">ML</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Time Series</span>
+                        </div>
+                        <h3 class="project-title">Anomaly Detection Dashboard</h3>
+                        <p class="project-desc">
+                            Real-time anomaly detection system using machine learning with time-series
+                            visualization and interactive Streamlit interface.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 8: Food Delivery -->
+                <div class="project-card reveal-up" data-category="web">
+                    <div class="project-image">
+                        <img src="./portfolio/online hmd.png" alt="Home Made Kitchen" class="project-img">
+                        <div class="project-overlay">
+                            <a href="https://onlinehmd.com/" class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://onlinehmd.com/" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Home Made Kitchen</h3>
+                        <p class="project-desc">
+                            Multi-user food delivery platform with role-based access for Admin, Delivery Boy,
+                            Kitchen, and Customer with real-time order tracking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 9: Styloboutique -->
+                <div class="project-card reveal-up" data-category="web">
+                    <div class="project-image">
+                        <img src="./portfolio/easymart.png" alt="Styloboutique" class="project-img">
+                        <div class="project-overlay">
+                            <a href="http://styloboutique.com/" target="_blank" class="project-link"
+                                aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">POS System</span>
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Retail</span>
+                        </div>
+                        <h3 class="project-title">Styloboutique</h3>
+                        <p class="project-desc">
+                            Complete POS and online e-commerce platform for physical retail stores.
+                            Features inventory management, sales tracking, and seamless online integration.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 10: Niamat Shoes -->
+                <div class="project-card reveal-up" data-category="web">
+                    <div class="project-image">
+                        <img src="./portfolio/naimat shoes desktop.png" alt="Niamat Shoes" class="project-img">
+                        <div class="project-overlay">
+                            <a href="https://niamatshoes.com" target="_blank" class="project-link"
+                                aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Multi-shop</span>
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Website</span>
+                        </div>
+                        <h3 class="project-title">Niamat Shoes</h3>
+                        <p class="project-desc">
+                            Multi-location e-commerce platform managing multiple shoe stores with centralized
+                            inventory, website integration, and online sales management.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills section section-gray">
-      <canvas id="laser-canvas"></canvas><!-- Laser Flow Background -->
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-
-        <!-- ... -->
-
-        <!-- Scripts -->
-        <script src="assets/js/cursor.js"></script>
-        <script src="assets/js/theme-scroll.js"></script>
-        <script src="assets/js/resume-effects.js"></script>
-        <script src="assets/js/laser-background.js"></script>
-</body>
-<h2>Skills</h2>
-
-</div><!-- End Section Title -->
-
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-
-  <div class="row skills-content skills-animation">
-
-    <div class="col-lg-6">
-
-      <div class="progress">
-        <span class="skill"><span>Machine Learning & Deep Learning</span> <i class="val">82%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>Large Language Models</span> <i class="val">75%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-      </div><!-- End Skills Item -->
-
-    </div>
-
-    <div class="col-lg-6">
-
-      <div class="progress">
-        <span class="skill"><span>Web Development (Django, Flask, PHP)</span> <i class="val">80%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>Python, PyTorch, scikit-learn</span> <i class="val">90%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>Data Analysis & Visualization</span> <i class="val">65%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
-      </div><!-- End Skills Item -->
-
-    </div>
-
-  </div>
-
-</div>
-
-</section><!-- /Skills Section -->
-
-<!-- Resume Section -->
-<section id="resume" class="resume section section-dark">
-  '
-
-  <div class="resume-floating-logos" id="resumeLogosOverlay">
-    <div class="programming-logo" style="color:#3776AB;"><i class="bi bi-file-earmark-code"></i> <!-- Python --></div>
-    <div class="programming-logo" style="color:#777BB4;"><i class="bi bi-filetype-php"></i></div>
-    <div class="programming-logo" style="color:#1572B6;"><i class="bi bi-filetype-css"></i></div>
-    <div class="programming-logo" style="color:#F06529;"><i class="bi bi-filetype-html"></i></div>
-    <div class="programming-logo" style="color:#FF2D20;"><i class="bi bi-bar-chart"></i> <!-- Progress/Chart --></div>
-    <div class="programming-logo" style="color:#00D084;"><i class="bi bi-cpu"></i> <!-- AI/ML --></div>
-    <!-- New Logos -->
-    <div class="programming-logo" style="color:#092E20;"><i class="devicon-django-plain"></i></div>
-    <div class="programming-logo" style="color:#F7931E;"><i class="devicon-scikitlearn-plain"></i></div>
-    <div class="programming-logo" style="color:#FF6F00;"><i class="devicon-tensorflow-original"></i></div>
-  </div>
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2 class="scramble-target">Resume</h2>
-    <p>Passionate AI researcher and developer with expertise in Machine Learning, Deep Learning, and Web
-      Development. Focused on leveraging AI for real-world solutions and contributing to cutting-edge research.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-    <div class="row">
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="resume-title scramble-target">Summary</h3>
-
-        <div class="resume-item pb-0">
-          <h4>Shaheer Ul Islam</h4>
-          <p><em>Innovative AI researcher and developer specializing in Machine Learning, Deep Learning, and Web
-              Development. Experienced in building AI-powered solutions and optimizing ML models.</em></p>
-          <ul>
-            <li>Mansehra, Pakistan</li>
-            <li>+92 315 410 5317</li>
-            <li>work.shaheerulislam@gmail.com</li>
-          </ul>
-        </div><!-- End Resume Item -->
-
-        <h3 class="resume-title scramble-target">Education</h3>
-        <div class="resume-item">
-          <h4>Intermediate</h4>
-          <h5>2019 - 2021</h5>
-          <p><em>Noor School & College, Mansehra</em></p>
-          <p>Focused on foundational engineering, computer science, physics, and mathematics.</p>
-        </div><!-- End Resume Item -->
-
-        <div class="resume-item">
-          <h4>Bachelor of Science in Artificial Intelligence</h4>
-          <h5>2021 - 2025</h5>
-          <p><em>Hazara University, Mansehra, Pakistan</em></p>
-          <p>Specializing in Machine Learning, Neural Networks, Generative AI, and Web Development. Worked on
-            projects like:</p>
-          <ul>
-            <li>MCQ Generation & Video Summarization</li>
-            <li>Image-to-Story Conversion & Sentiment Analysis System</li>
-            <li>Pakistan House Price Prediction</li>
-          </ul>
-        </div><!-- End Resume Item -->
-
-
-        <h3 class="resume-title scramble-target">Certifications</h3>
-        <div class="resume-item">
-          <h4>
-            <a href="https://www.coursera.org/account/accomplishments/specialization/HY5YEBA7KU27" target="_blank"
-              rel="noopener noreferrer">
-              IBM Machine Learning Professional Certificate
-            </a>
-          </h4>
-          <p><em>Coursera</em> | Completed December 23, 2024</p>
-          <ul>
-            <li>Exploratory Data Analysis for Machine Learning</li>
-            <li>Supervised Machine Learning: Regression</li>
-            <li>Supervised Machine Learning: Classification</li>
-            <li>Unsupervised Machine Learning</li>
-            <li>Deep Learning and Reinforcement Learning</li>
-            <li>Machine Learning Capstone</li>
-          </ul>
-        </div>
-        <div class="resume-item">
-          <h4>
-            <a href="https://www.coursera.org/account/accomplishments/specialization/HSHOFJS9X19W" target="_blank"
-              rel="noopener noreferrer">
-              Google IT Support Professional Certificate
-            </a>
-          </h4>
-          <p><em>Coursera</em> | Completed January 5, 2025</p>
-          <ul>
-            <li>Technical Support Fundamentals</li>
-            <li>The Bits and Bytes of Computer Networking</li>
-            <li>Operating Systems and You: Becoming a Power User</li>
-            <li>System Administration and IT Infrastructure Services</li>
-            <li>IT Security: Defense Against the Digital Dark Arts</li>
-          </ul>
-
-        </div>
-      </div>
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="resume-title scramble-target">Professional Experience</h3>
-
-        <div class="resume-item">
-          <h4>Machine Learning Intern</h4>
-          <h5>01/2025 - 03/2025</h5>
-          <p><em>InterIntelligence, Pakistan</em></p>
-          <ul>
-            <li>Developed and optimized machine learning models for AI solutions.</li>
-            <li>Conducted data preprocessing, feature engineering, and model evaluation.</li>
-            <li>Collaborated with researchers to fine-tune models using PyTorch and scikit-learn.</li>
-            <li>Implemented transfer learning techniques for computer vision applications.</li>
-            <li>Presented progress reports on model accuracy and performance.</li>
-          </ul>
-        </div><!-- End Resume Item -->
-
-        <div class="resume-item">
-          <h4>Intern / Project Associate</h4>
-          <h5>08/2025 - 12/2025</h5>
-          <p><em>PERFORMANCE MANAGEMENT & REFORM UNIT (PMRU)</em></p>
-          <ul>
-            <li>Designed and implemented a Retrieval-Augmented Generation (RAG)-based Chatbot for efficient task
-              management and reporting</li>
-            <li>Developed and deployed a web-based testing platform to streamline online assessments and result
-              management</li>
-            <li>Collaborated with the backend team to integrate AI driven features and optimize workflows</li>
-          </ul>
-        </div><!-- End Resume Item -->
-
-
-
-        <h3 class="resume-title scramble-target">Achievements</h3>
-        <div class="resume-item">
-          <h4>
-            <a href="https://drive.google.com/file/d/16LqDKo5P2U_LHRh2af2sARVxakQYagq-/view?usp=sharing" target="_blank"
-              rel="noopener noreferrer">
-              Runner-up, Youth Robo Tech (YRT) 2024
-            </a>
-          </h4>
-
-
-          <h5>Arduino Futsal & Off-Roading</h5>
-          <p><em>National Robotics Competition</em></p>
-          <ul>
-            <li>Designed and programmed autonomous robots for Futsal and Off-Roading.</li>
-            <li>Secured 3rd place in a competitive national-level robotics event.</li>
-          </ul>
-        </div><!-- End Resume Item -->
-        <div class="resume-item">
-          <h4>
-            <a href="https://drive.google.com/file/d/1bA2ftACnbADzDjy0CEkHXtLA3VQpT33u/view?usp=drive_link"
-              target="_blank" rel="noopener noreferrer">
-              Participant, Youth Robo Tech (YRT) 2025
-            </a>
-          </h4>
-
-
-          <h5>Arduino Programming</h5>
-          <p><em>National Robotics Competition</em></p>
-          <ul>
-            <li>Designed and programmed autonomous robots for Futsal and Off-Roading challenges.</li>
-            <li>Assisted junior team members in robot assembly, Arduino programming, and debugging.</li>
-          </ul>
-
-
+    <section id="skills" class="skills section-padding bg-dark" style="position: relative; overflow: hidden;">
+        <!-- Galaxy Orbit Animation -->
+        <div class="skills-orbit"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.4; display: flex; align-items: center; justify-content: center;">
+            <div class="orbit-center">
+                <div class="orbit-ring ring-1">
+                    <div class="orbit-planet planet-1"></div>
+                </div>
+                <div class="orbit-ring ring-2">
+                    <div class="orbit-planet planet-2"></div>
+                </div>
+                <div class="orbit-ring ring-3">
+                    <div class="orbit-planet planet-3"></div>
+                </div>
+            </div>
         </div>
 
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+            </div>
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category reveal-up">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="category-title">Programming Languages</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">PHP</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      </div>
+                <!-- AI/ML -->
+                <div class="skill-category reveal-up">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="category-title">AI & Machine Learning</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Machine Learning & Deep Learning</span>
+                                <span class="skill-percent">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Large Language Models</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">PyTorch & TensorFlow</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">NLP & Computer Vision</span>
+                                <span class="skill-percent">78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="78"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</section><!-- /Resume Section -->
+                <!-- Frameworks & Tools -->
+                <div class="skill-category reveal-up">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="category-title">Frameworks & Tools</h3>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="skill-badge"><i class="fab fa-python"></i> Django</span>
+                        <span class="skill-badge"><i class="fas fa-flask"></i> Flask</span>
+                        <span class="skill-badge"><i class="fas fa-robot"></i> LangChain</span>
+                        <span class="skill-badge"><i class="fas fa-database"></i> LlamaIndex</span>
+                        <span class="skill-badge"><i class="fas fa-eye"></i> OpenCV</span>
+                        <span class="skill-badge"><i class="fas fa-chart-bar"></i> Scikit-learn</span>
+                        <span class="skill-badge"><i class="fas fa-server"></i> Streamlit</span>
+                        <span class="skill-badge"><i class="fab fa-git-alt"></i> Git</span>
+                        <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="skill-badge"><i class="fas fa-code"></i> PHP</span>
+                        <span class="skill-badge"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-badge"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                    </div>
+                </div>
 
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio section">
-
-  <!-- Section Title -->
-  <section id="portfolio" class="portfolio section section-white">
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Portfolio</h2>
-      <p>Featured Projects & Recent Work</p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-        <div class="portfolio-filters-wrapper">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">
-              <span class="filter-icon"><i class="bi bi-grid-3x3-gap"></i></span>
-              <span class="filter-text">All</span>
-            </li>
-            <li data-filter=".filter-ml">
-              <span class="filter-icon"><i class="bi bi-cpu"></i></span>
-              <span class="filter-text">Machine Learning</span>
-            </li>
-            <li data-filter=".filter-web">
-              <span class="filter-icon"><i class="bi bi-code-slash"></i></span>
-              <span class="filter-text">Web Development</span>
-            </li>
-            <li data-filter=".filter-gen">
-              <span class="filter-icon"><i class="bi bi-magic"></i></span>
-              <span class="filter-text">Generative AI</span>
-            </li>
-          </ul><!-- End Portfolio Filters -->
+                <!-- Soft Skills -->
+                <div class="skill-category reveal-up">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="category-title">Professional Skills</h3>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Problem Solving</span>
+                        <span class="skill-badge">Team Collaboration</span>
+                        <span class="skill-badge">Project Management</span>
+                        <span class="skill-badge">Research & Analysis</span>
+                        <span class="skill-badge">Technical Writing</span>
+                        <span class="skill-badge">Public Speaking</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-          <!-- E-commerce Platform (Django) -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="50">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/Ecom.png" class="img-fluid portfolio-image" alt="E-commerce Platform">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
             </div>
-            <div class="portfolio-info">
-              <h4>E-commerce Platform (Django)</h4>
-              <p>Built a full-fledged e-commerce site using Django, featuring secure authentication, payment
-                integration, and admin management.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">Django</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">PostgreSQL</span>
-              </div>
-              <a href="assets/img/portfolio/Ecom.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="View Details"><i
-                  class="bi bi-link-45deg"></i></a>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <h3 class="contact-heading">Have a project in mind?</h3>
+                    <p class="contact-text">
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of
+                        your visions. Whether you need an AI solution, ML model, or full-stack application, let's talk!
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail">
+                                <span class="detail-label">Email</span>
+                                <a href="mailto:work.shaheerulislam@gmail.com"
+                                    class="detail-value">work.shaheerulislam@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-detail">
+                                <span class="detail-label">Phone</span>
+                                <a href="tel:+923154105317" class="detail-value">+92 315 410 5317</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-detail">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Abbottabad, Pakistan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <span>Follow me:</span>
+                        <div class="social-links">
+                            <a href="https://github.com/shaheer-ul-islam" target="_blank" class="social-link"
+                                aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/shaheer-ul-islam" target="_blank" class="social-link"
+                                aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal-right">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeevqpwe" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="formStatus" class="form-status" aria-live="polite"></div>
+                    </form>
+                </div>
             </div>
-          </div><!-- End Portfolio Item -->
-
-          <!-- Art Gallery with Multi-User Authentication -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="100">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/Art Gallery.png" class="img-fluid portfolio-image" alt="Art Gallery">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Art Gallery with Multi-User Authentication</h4>
-              <p>Developed an online art gallery with Django, enabling role-based authentication and secure image
-                uploads.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">Django</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Bootstrap</span>
-              </div>
-              <a href="assets/img/portfolio/Art Gallery.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="https://www.linkedin.com/posts/shaheer-ul-islam-a135b2290_zrock-webdevelopment-django-activity-7227983881960886272-mr9h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaRSi8BSpLkfZquzez30qdtW_bIFKUwy78"
-                class="details-link" target="_blank" title="View Project"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <!-- Anomaly Detection Dashboard (ML/DL) -->
-
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gen" data-aos="fade-up" data-aos-delay="150">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/Vide.png" class="img-fluid portfolio-image" alt="Video Summarization">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Video Summarization & Flashcards</h4>
-              <p>Extract key insights, generate summaries, and create interactive flashcards from videos.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">AI/ML</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">NLP</span>
-              </div>
-              <a href="assets/img/portfolio/vide.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="video-summary-details.html" class="details-link" title="View Details"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gen" data-aos="fade-up" data-aos-delay="200">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/vision.png" class="img-fluid portfolio-image" alt="Gemini Image QA">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Gemini Image-Based QA</h4>
-              <p>Upload an image and ask questions about it using Google's Gemini AI.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">Gemini AI</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Vision AI</span>
-              </div>
-              <a href="assets/img/portfolio/vision.png" class="glightbox preview-link" title="View Screenshot">
-                <i class="bi bi-zoom-in"></i>
-              </a>
-              <a href="gemini-qa-details.html" class="details-link" title="View Details">
-                <i class="bi bi-link-45deg"></i>
-              </a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml" data-aos="fade-up" data-aos-delay="250">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/Picture1.png" class="img-fluid portfolio-image" alt="Anomaly Detection">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Anomaly Detection Dashboard</h4>
-              <p>Built a real-time anomaly detection system using machine learning and Streamlit, featuring
-                time-series visualization.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">ML</span>
-                <span class="tech-badge">Streamlit</span>
-                <span class="tech-badge">Python</span>
-              </div>
-              <a href="assets/img/portfolio/Picture1.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="View Details"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <!-- AI-Powered Resume Parser (ML/DL) -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml" data-aos="fade-up" data-aos-delay="300">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/CIFAR-10.png" class="img-fluid portfolio-image"
-                alt="CIFAR-10 Image Classifier">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>CIFAR-10 Image Classifier</h4>
-              <p>Developed a deep learning-based image classifier trained on the CIFAR-10 dataset, leveraging
-                convolutional neural networks (CNNs) for accurate predictions.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">Deep Learning</span>
-                <span class="tech-badge">CNN</span>
-                <span class="tech-badge">PyTorch</span>
-              </div>
-              <a href="assets/img/portfolio/CIFAR-10.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="https://huggingface.co/spaces/shaheerulislam/CIFAR-IO-image-Classifier" class="details-link"
-                target="_blank" title="View Live Demo"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-
-
-          <!-- Wine Quality Prediction (ML) -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml" data-aos="fade-up" data-aos-delay="350">
-            <div class="portfolio-image-wrapper">
-              <video class="img-fluid portfolio-image" controls>
-                <source src="assets/videos/0316.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-play-circle"></i>
-                <span>Watch Demo</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Wine Quality Prediction</h4>
-              <p>Built an ML model to predict wine quality using scikit-learn, analyzing key chemical properties for
-                classification.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">ML</span>
-                <span class="tech-badge">scikit-learn</span>
-                <span class="tech-badge">Python</span>
-              </div>
-              <a href="assets/videos/0316.mp4" class="glightbox preview-link" title="Watch Video"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="https://github.com/shaheer-ul-islam/Wine-Quality-ML-Project-Wnd-to-End" class="details-link"
-                target="_blank" title="View on GitHub"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <!-- Home Made Kitchen - PHP Food Delivery System -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="400">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/online hmd.png" class="img-fluid portfolio-image" alt="Home Made Kitchen">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Home Made Kitchen - Food Delivery System</h4>
-              <p>PHP-based multi-user food delivery platform with role-based access for Admin, Delivery Boy, Kitchen,
-                and Customer. Features real-time order tracking, payment integration, and comprehensive dashboard
-                management.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">PHP</span>
-                <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">JavaScript</span>
-              </div>
-              <a href="assets/img/portfolio/online hmd.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="https://onlinehmd.com/" class="details-link" target="_blank" title="Visit Website"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <!-- EasyMart - E-commerce Store -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="450">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/easymart.png" class="img-fluid portfolio-image" alt="EasyMart E-commerce">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>EasyMart - E-commerce Platform</h4>
-              <p>Full-featured e-commerce store with product catalog, shopping cart, user authentication, and secure
-                checkout. Includes admin panel for inventory management and order processing.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">PHP</span>
-                <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">Bootstrap</span>
-              </div>
-              <a href="assets/img/portfolio/easymart.png" class="glightbox preview-link" title="View Screenshot"><i
-                  class="bi bi-zoom-in"></i></a>
-              <a href="http://easymart.pk/" class="details-link" target="_blank" title="Visit Website"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-          <!-- Niamat Shoes Shop - E-commerce -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web" data-aos="fade-up" data-aos-delay="500">
-            <div class="portfolio-image-wrapper">
-              <img src="assets/img/portfolio/naimat shoes desktop.png" class="img-fluid portfolio-image"
-                alt="Niamat Shoes Shop">
-              <div class="portfolio-overlay"></div>
-              <div class="portfolio-hover-content">
-                <i class="bi bi-arrow-right-circle"></i>
-                <span>View Project</span>
-              </div>
-            </div>
-            <div class="portfolio-info">
-              <h4>Niamat Shoes Shop - E-commerce Store</h4>
-              <p>Specialized footwear e-commerce platform with category filtering, size/color selection, product search,
-                and responsive design. Features user accounts, wishlist, and order management system.</p>
-              <div class="portfolio-tech-stack">
-                <span class="tech-badge">PHP</span>
-                <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">jQuery</span>
-              </div>
-              <a href="assets/img/portfolio/naimat shoes desktop.png" class="glightbox preview-link"
-                title="View Screenshot"><i class="bi bi-zoom-in"></i></a>
-              <a href="https://niamatshoes.com/" class="details-link" target="_blank" title="Visit Website"><i
-                  class="bi bi-link-45deg"></i></a>
-            </div>
-          </div><!-- End Portfolio Item -->
-
-
-
-        </div><!-- End Portfolio Container -->
-      </div>
-    </div>
-  </section><!-- /Portfolio Section -->
-
-
-  <!-- Services Section -->
-  <section id="services" class="services section section-gray">
-
-    <!-- Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <div class="terminal-header">
-        <div class="terminal-controls">
-          <span class="terminal-btn terminal-btn-close"></span>
-          <span class="terminal-btn terminal-btn-minimize"></span>
-          <span class="terminal-btn terminal-btn-maximize"></span>
         </div>
-        <div class="terminal-title">
-          <span class="terminal-prompt">$</span>
-          <span class="terminal-text">shaheer@portfolio:~$ services --list</span>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-bracket">&lt;</span>
+                        <span class="logo-text">Shaheer</span>
+                        <span class="logo-bracket">/&gt;</span>
+                    </a>
+                    <p class="footer-tagline">Delivering production-ready AI applications, elegant web experiences, and
+                        thoughtful automation.</p>
+                    <div class="footer-callout">
+                        Available for freelance, consulting, and team-based AI projects.
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Machine Learning Systems</li>
+                        <li>Web & API Development</li>
+                        <li>AI Product Strategy</li>
+                        <li>Data Engineering</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: <a href="mailto:work.shaheerulislam@gmail.com">work.shaheerulislam@gmail.com</a></li>
+                        <li>Phone: <a href="tel:+923154105317">+92 315 410 5317</a></li>
+                        <li>Location: Abbottabad, Pakistan</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Follow</h4>
+                    <ul>
+                        <li><a href="https://github.com/shaheer-ul-islam" target="_blank">GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/shaheer-ul-islam" target="_blank">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shaheer Ul Islam. All rights reserved.</p>
+                <p>Built for modern AI & web teams</p>
+            </div>
         </div>
-      </div>
-      <h2 class="terminal-style-heading">
-        <span class="terminal-prompt">></span> Services
-      </h2>
-      <p class="terminal-description">
-        <span class="terminal-comment">// I specialize in delivering AI-driven solutions tailored to diverse
-          industries.</span><br>
-        <span class="terminal-comment">// My expertise spans machine learning, deep learning, and web
-          development.</span>
-      </p>
-    </div><!-- End Section Title -->
-
-    <div class="container">
-
-      <div class="row gy-4">
-
-        <!-- AI Model Development -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-item item-cyan position-relative terminal-card">
-            <div class="terminal-window">
-              <div class="terminal-window-header">
-                <span class="terminal-window-title">ai_model_dev.py</span>
-                <span class="terminal-window-status">●</span>
-              </div>
-            </div>
-            <div class="service-card-wrapper">
-              <div class="service-icon-wrapper">
-                <div class="icon">
-                  <i class="bi bi-cpu"></i>
-                </div>
-                <div class="icon-bg"></div>
-              </div>
-              <div class="service-content">
-                <a href="#" class="stretched-link">
-                  <h3>
-                    <span class="terminal-prompt-small">$</span> AI Model Development
-                  </h3>
-                </a>
-                <div class="terminal-code-block">
-                  <span class="terminal-line">
-                    <span class="terminal-keyword">def</span> <span class="terminal-function">develop_ai_model</span>():
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-comment"># PyTorch, TensorFlow, scikit-learn</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-keyword">return</span> <span class="terminal-string">"state-of-the-art
-                      AI"</span>
-                  </span>
-                </div>
-                <p class="terminal-description-text">Design and develop state-of-the-art AI models for classification,
-                  regression, and generative tasks using deep learning frameworks like PyTorch.</p>
-                <div class="service-footer">
-                  <span class="service-link-text terminal-command">
-                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="service-hover-effect"></div>
-            </div>
-          </div>
-        </div><!-- End Service Item -->
-
-        <!-- Computer Vision -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-item item-orange position-relative terminal-card">
-            <div class="terminal-window">
-              <div class="terminal-window-header">
-                <span class="terminal-window-title">vision_system.sh</span>
-                <span class="terminal-window-status">●</span>
-              </div>
-            </div>
-            <div class="service-card-wrapper">
-              <div class="service-icon-wrapper">
-                <div class="icon">
-                  <i class="bi bi-eye"></i>
-                </div>
-                <div class="icon-bg"></div>
-              </div>
-              <div class="service-content">
-                <a href="#" class="stretched-link">
-                  <h3>
-                    <span class="terminal-prompt-small">$</span> Computer Vision Solutions
-                  </h3>
-                </a>
-                <div class="terminal-code-block">
-                  <span class="terminal-line">
-                    <span class="terminal-keyword">import</span> <span class="terminal-module">cv2</span>, <span
-                      class="terminal-module">torchvision</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-comment"># Object detection, segmentation</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-function">process_image</span>(<span
-                      class="terminal-string">"input.jpg"</span>)
-                  </span>
-                </div>
-                <p class="terminal-description-text">Implement cutting-edge vision solutions for object detection,
-                  segmentation, and image classification to enhance automation and efficiency.</p>
-                <div class="service-footer">
-                  <span class="service-link-text terminal-command">
-                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="service-hover-effect"></div>
-            </div>
-          </div>
-        </div><!-- End Service Item -->
-
-        <!-- NLP Solutions -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-item item-teal position-relative terminal-card">
-            <div class="terminal-window">
-              <div class="terminal-window-header">
-                <span class="terminal-window-title">nlp_engine.py</span>
-                <span class="terminal-window-status">●</span>
-              </div>
-            </div>
-            <div class="service-card-wrapper">
-              <div class="service-icon-wrapper">
-                <div class="icon">
-                  <i class="bi bi-chat-left-text"></i>
-                </div>
-                <div class="icon-bg"></div>
-              </div>
-              <div class="service-content">
-                <a href="#" class="stretched-link">
-                  <h3>
-                    <span class="terminal-prompt-small">$</span> Natural Language Processing
-                  </h3>
-                </a>
-                <div class="terminal-code-block">
-                  <span class="terminal-line">
-                    <span class="terminal-keyword">from</span> <span class="terminal-module">transformers</span> <span
-                      class="terminal-keyword">import</span> <span class="terminal-module">GPT</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-comment"># Sentiment, generation, chatbots</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-function">analyze_text</span>(<span
-                      class="terminal-string">"input.txt"</span>)
-                  </span>
-                </div>
-                <p class="terminal-description-text">Develop intelligent NLP applications for sentiment analysis, text
-                  generation, and automated customer support using transformers and deep learning models.</p>
-                <div class="service-footer">
-                  <span class="service-link-text terminal-command">
-                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="service-hover-effect"></div>
-            </div>
-          </div>
-        </div><!-- End Service Item -->
-
-        <!-- Web Development -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-item item-red position-relative terminal-card">
-            <div class="terminal-window">
-              <div class="terminal-window-header">
-                <span class="terminal-window-title">web_app.js</span>
-                <span class="terminal-window-status">●</span>
-              </div>
-            </div>
-            <div class="service-card-wrapper">
-              <div class="service-icon-wrapper">
-                <div class="icon">
-                  <i class="bi bi-globe"></i>
-                </div>
-                <div class="icon-bg"></div>
-              </div>
-              <div class="service-content">
-                <a href="#" class="stretched-link">
-                  <h3>
-                    <span class="terminal-prompt-small">$</span> Full-Stack Web Development
-                  </h3>
-                </a>
-                <div class="terminal-code-block">
-                  <span class="terminal-line">
-                    <span class="terminal-keyword">npm</span> <span class="terminal-command">install</span> django flask
-                    react
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-comment"># Full-stack solutions</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-function">deploy</span>(<span class="terminal-string">"production"</span>)
-                  </span>
-                </div>
-                <p class="terminal-description-text">Build robust web applications using Django, Flask, PHP and modern
-                  JavaScript frameworks, ensuring performance, scalability, and security.</p>
-                <div class="service-footer">
-                  <span class="service-link-text terminal-command">
-                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="service-hover-effect"></div>
-            </div>
-          </div>
-        </div><!-- End Service Item -->
-
-        <!-- AI-Powered Analytics -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-item item-indigo position-relative terminal-card">
-            <div class="terminal-window">
-              <div class="terminal-window-header">
-                <span class="terminal-window-title">analytics.py</span>
-                <span class="terminal-window-status">●</span>
-              </div>
-            </div>
-            <div class="service-card-wrapper">
-              <div class="service-icon-wrapper">
-                <div class="icon">
-                  <i class="bi bi-graph-up"></i>
-                </div>
-                <div class="icon-bg"></div>
-              </div>
-              <div class="service-content">
-                <a href="#" class="stretched-link">
-                  <h3>
-                    <span class="terminal-prompt-small">$</span> AI-Powered Data Analytics
-                  </h3>
-                </a>
-                <div class="terminal-code-block">
-                  <span class="terminal-line">
-                    <span class="terminal-keyword">import</span> <span class="terminal-module">pandas</span>, <span
-                      class="terminal-module">numpy</span>, <span class="terminal-module">sklearn</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-comment"># ML insights & predictions</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-function">analyze</span>(<span class="terminal-string">"dataset.csv"</span>)
-                  </span>
-                </div>
-                <p class="terminal-description-text">Leverage machine learning techniques to analyze complex datasets,
-                  extract insights, and drive data-informed decision-making.</p>
-                <div class="service-footer">
-                  <span class="service-link-text terminal-command">
-                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="service-hover-effect"></div>
-            </div>
-          </div>
-        </div><!-- End Service Item -->
-
-        <!-- AI Consulting -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="service-item item-pink position-relative terminal-card">
-            <div class="terminal-window">
-              <div class="terminal-window-header">
-                <span class="terminal-window-title">consulting.md</span>
-                <span class="terminal-window-status">●</span>
-              </div>
-            </div>
-            <div class="service-card-wrapper">
-              <div class="service-icon-wrapper">
-                <div class="icon">
-                  <i class="bi bi-lightbulb"></i>
-                </div>
-                <div class="icon-bg"></div>
-              </div>
-              <div class="service-content">
-                <a href="#" class="stretched-link">
-                  <h3>
-                    <span class="terminal-prompt-small">$</span> AI Consulting & Research
-                  </h3>
-                </a>
-                <div class="terminal-code-block">
-                  <span class="terminal-line">
-                    <span class="terminal-keyword">git</span> <span class="terminal-command">clone</span> <span
-                      class="terminal-string">ai-strategy</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-comment"># Expert guidance & optimization</span>
-                  </span>
-                  <span class="terminal-line terminal-indent">
-                    <span class="terminal-function">consult</span>(<span class="terminal-string">"your_project"</span>)
-                  </span>
-                </div>
-                <p class="terminal-description-text">Provide expert guidance on AI strategy, model optimization, and
-                  research-driven solutions tailored to industry needs.</p>
-                <div class="service-footer">
-                  <span class="service-link-text terminal-command">
-                    <span class="terminal-prompt-small">$</span> learn_more <i class="bi bi-arrow-right"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="service-hover-effect"></div>
-            </div>
-          </div>
-        </div><!-- End Service Item -->
-
-      </div>
-
-    </div>
-
-  </section><!-- /Services Section -->
-
-
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <!-- Section Title -->
-    <!-- Contact Section Removed -->
-
-    </main>
-    <footer id="footer" class="footer position-relative light-background">
-      <canvas id="footer-neural-network"></canvas>
-
-      <div class="container text-center">
-        <h3 class="sitename">Shaheer Ul Islam</h3>
-        <p>Passionate about AI, Machine Learning, and Web Development. Let’s innovate together!</p>
-
-        <div class="social-links d-flex justify-content-center mt-3">
-          <a href="https://github.com/shaheer-ul-islam" target="_blank"><i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/shaheer-ul-islam-a135b2290/" target="_blank"><i
-              class="bi bi-linkedin"></i></a>
-          <a href="https://www.instagram.com/shaheer_ul_islam/" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="mailto:work.shaheerulislam@gmail.com"><i class="bi bi-envelope"></i></a>
-        </div>
-
-        <div class="copyright mt-4">
-          <span>© 2025</span> <strong class="px-1 sitename">Shaheer Ul Islam</strong> <span>All Rights Reserved</span>
-        </div>
-        <div class="credits">
-          Designed by <strong>Shaheer Ul Islam</strong> ❤️
-        </div>
-      </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/923154105317" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
-      <i class="bi bi-whatsapp"></i>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923154105317" target="_blank" class="whatsapp-btn" aria-label="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/network-animation.js"></script>
-
-    <!-- Splash Cursor Effect -->
-    <div id="cursor-dot"></div>
-
-    <!-- Hands Animation Overlay -->
-    <div id="hands-animation">
-      <img src="assets/img/hands/robot-hand.png" class="hand-img hand-robot" alt="Robot Hand">
-      <img src="assets/img/hands/human-hand.png" class="hand-img hand-human" alt="Human Hand">
-    </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/cursor.js"></script>
-    <script src="assets/js/theme-scroll.js"></script>
-    <script src="assets/js/resume-effects.js"></script>
-    <script src="assets/js/resume-logos-animation.js"></script>
-    <script src="assets/js/footer-neural-network.js"></script>
-    <script src="assets/js/laser-flow.js"></script>
-
-    </body>
+    <script src="script.js"></script>
+</body>
 
 </html>
