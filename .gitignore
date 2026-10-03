@@ -1,0 +1,13 @@
+# Agent tooling and local scratch data
+.kilo/
+.vscode/
+.idea/
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp/QA artefacts
+_qa*.html
+_conv.html
