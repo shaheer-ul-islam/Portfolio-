@@ -485,6 +485,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .nav-logo {
@@ -3255,5 +3256,316 @@ body.light-theme .client-item:hover img {
 
     .project-cta {
         width: 100%;
+    }
+}
+
+/* ==========================================
+   Developer ID Card - hanging from navbar
+   ========================================== */
+:root {
+    --id-card-w: 250px;
+    --id-card-h: calc(var(--id-card-w) * 1286 / 1223);
+    --id-accent: #00d4ff;
+    --id-accent-dim: rgba(0, 212, 255, 0.45);
+    --lanyard-w: 14px;
+    --lanyard-len: 175px;
+    --metal: #cbd5e1;
+    --metal-dark: #64748b;
+    --metal-light: #f1f5f9;
+    --id-z: 999;
+    --id-anchor-right: 200px;
+}
+
+.navbar-card-anchor {
+    position: absolute;
+    right: var(--id-anchor-right);
+    top: 100%;
+    width: 40px;
+    height: 40px;
+    margin-right: -20px;
+    z-index: var(--id-z);
+    pointer-events: auto;
+    background: transparent;
+    opacity: 1;
+    transition: opacity 0.45s ease;
+}
+
+/* Hide card when scrolled past home/hero section */
+.navbar-card-anchor.is-scroll-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar-card-anchor.is-dragging,
+.navbar-card-anchor.is-dragging * {
+    cursor: grabbing !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+/* Metallic mounting point attached to navbar */
+.mounting-ring {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--metal);
+    border-top: 3px solid var(--metal-light);
+    border-right: 3px solid var(--metal-light);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--metal-light), #94a3b8, #64748b);
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Continuous SVG Ribbon */
+.lanyard-ribbon-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ribbon-shadow {
+    fill: rgba(0, 0, 0, 0.35);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+}
+
+.ribbon-strap {
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+.ribbon-strap-back {
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+
+.ribbon-crease {
+    stroke: rgba(0, 0, 0, 0.75);
+    stroke-width: 1.2;
+    fill: none;
+    pointer-events: none;
+}
+
+.ribbon-stitch {
+    stroke: rgba(0, 212, 255, 0.45);
+    stroke-width: 0.9;
+    stroke-dasharray: 3 1.5;
+    fill: none;
+}
+
+.ribbon-tension {
+    stroke-width: 1.5;
+    fill: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Unified Card & Hardware Assembly */
+.card-assembly {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: var(--id-card-w);
+    margin-left: calc(-0.5 * var(--id-card-w));
+    transform-origin: 50% 0px;
+    will-change: transform;
+    pointer-events: auto;
+    z-index: 3;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+/* Metallic hardware directly connecting strap to card */
+.lanyard-hardware {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 42px;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Buckle holding bottom of strap */
+.buckle {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 11px;
+    background: linear-gradient(135deg, var(--metal-light), var(--metal), var(--metal-dark));
+    border: 1.5px solid var(--metal-dark);
+    border-radius: 3px;
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+.buckle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 2px;
+    border: 1px solid var(--metal-light);
+    margin: 1px;
+    opacity: 0.6;
+}
+
+/* Swivel hook */
+.swivel-hook {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 17px;
+    height: 17px;
+    border: 3px solid var(--metal);
+    border-top: 3px solid var(--metal-light);
+    border-right: 3px solid transparent;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background: linear-gradient(135deg, var(--metal-light), var(--metal-dark));
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* Connecting ring clasping card slot */
+.connecting-ring {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2.5px solid var(--metal);
+    border-top: 2.5px solid var(--metal-light);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--metal-light), #64748b);
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* Card tilt wrapper */
+.card-tilt-wrapper {
+    position: relative;
+    margin-top: 31px;
+    width: var(--id-card-w);
+    height: var(--id-card-h);
+    transform-style: preserve-3d;
+}
+
+/* Flip container - 3D rotation driven frame-by-frame with ribbon in JS */
+.card-flip-container {
+    position: relative;
+    width: var(--id-card-w);
+    height: var(--id-card-h);
+    transform-style: preserve-3d;
+    cursor: grab;
+    outline: none;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    will-change: transform;
+}
+
+.card-assembly.is-dragging .card-flip-container {
+    cursor: grabbing;
+}
+
+/* Card faces */
+.card-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 14px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.card-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+/* Subtle flip hint */
+.flip-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font: 500 9px var(--font-primary);
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.card-flip-container:focus-visible {
+    outline: 3px solid var(--id-accent);
+    outline-offset: 4px;
+    border-radius: 16px;
+}
+
+/* ==========================================
+   Responsive ID card
+   ========================================== */
+@media (max-width: 1023px) {
+    :root {
+        --id-card-w: 200px;
+        --lanyard-len: 135px;
+        --id-anchor-right: 120px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-card-anchor {
+        display: none !important;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .card-assembly {
+        transform: translate3d(0, 191px, 0) !important;
+        transition: none !important;
+    }
+    .card-flip-container {
+        transition: none !important;
     }
 }

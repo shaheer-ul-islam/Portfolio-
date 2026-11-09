@@ -999,4 +999,586 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
+    // Developer ID Card - Unified Physics Assembly
+    // ==========================================
+    (function initIDCard() {
+        const anchor = document.getElementById('navbarCardAnchor');
+        const ribbonSvg = document.getElementById('lanyardRibbonSvg');
+        const strapPath = document.getElementById('ribbonStrapPath');
+        const strapBackPath = document.getElementById('ribbonStrapBack');
+        const creasePath = document.getElementById('ribbonCrease');
+        const shadowPath = document.getElementById('ribbonShadowPath');
+        const stitchLeft = document.getElementById('ribbonStitchLeft');
+        const stitchRight = document.getElementById('ribbonStitchRight');
+        const tensionPath = document.getElementById('ribbonTensionPath');
+        const cardAssembly = document.getElementById('cardAssembly');
+        const flipContainer = document.getElementById('cardFlipContainer');
+        const hardware = cardAssembly ? cardAssembly.querySelector('.lanyard-hardware') : null;
+
+        if (!anchor || !ribbonSvg || !strapPath || !cardAssembly || !flipContainer) return;
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Hide card on all sections except home/hero
+        const homeSection = document.getElementById('home');
+        const sections = document.querySelectorAll('section[id]');
+        if (sections.length && homeSection) {
+            const visibilityObserver = new IntersectionObserver(() => {
+                const homeRect = homeSection.getBoundingClientRect();
+                const homeVisible =
+                    homeRect.top < window.innerHeight && homeRect.bottom > 0;
+                anchor.classList.toggle('is-scroll-hidden', !homeVisible);
+            }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+            sections.forEach((section) => visibilityObserver.observe(section));
+        }
+
+        // Geometry & Layout Constants
+        const ANCHOR_P0_X = 20; // local X center of mounting ring
+        const ANCHOR_P0_Y = 16; // local Y center of mounting ring
+        const BASE_STRAP_W = 14;
+
+        // Physics Constants
+        const G = 1350;             // Gravity (px/s^2)
+        const K_STRETCH = 175;      // Elastic spring constant
+        const C_RADIAL_DAMP = 18;   // Radial bounce damping
+        const C_AIR = 0.95;         // Air drag
+        const K_ROT = 45;           // Rotational alignment stiffness
+        const C_ROT = 7.0;          // Rotational damping
+
+        // Synchronized Flip Spring Constants
+        const K_FLIP = 140;         // Snappy, silky flip response
+        const C_FLIP = 16;          // Critical damping for clean settle
+
+        let isTablet = window.innerWidth <= 1023;
+        let restLanyardLen = isTablet ? 135 : 175;
+        let cardWidth = isTablet ? 200 : 250;
+        let L0 = restLanyardLen - (G / K_STRETCH);
+
+        function updateDimensions() {
+            isTablet = window.innerWidth <= 1023;
+            restLanyardLen = isTablet ? 135 : 175;
+            cardWidth = isTablet ? 200 : 250;
+            L0 = restLanyardLen - (G / K_STRETCH);
+        }
+        window.addEventListener('resize', updateDimensions);
+
+        // Physics State
+        let x = 0;
+        let y = reducedMotion ? (ANCHOR_P0_Y + restLanyardLen) : -50; // Entrance drop from above navbar
+        let vx = 0;
+        let vy = reducedMotion ? 0 : 220;
+        let theta = 0;
+        let omega = 0;
+        let rotY = 0, vRotY = 0;
+        let rotX = 0, vRotX = 0;
+
+        // Synchronized 3D Flip State
+        let targetFlipAngle = 0;
+        let curFlipAngle = 0;
+        let vFlipAngle = 0;
+        let isFlipped = false;
+
+        // Hover & Mouse Tilt
+        let mouseTiltX = 0, mouseTiltY = 0;
+        let curMouseTiltX = 0, curMouseTiltY = 0;
+        let isHovered = false;
+
+        // Interaction State
+        let isDragging = false;
+        let pointerDown = false;
+        let dragMoved = false;
+        let entering = !reducedMotion;
+        let idleTime = 0;
+        let lastTime = performance.now();
+        let rafId = 0;
+
+        let grabOffsetX = 0;
+        let grabOffsetY = 0;
+        let startPointerX = 0, startPointerY = 0;
+        let pointerHistory = [];
+        const DRAG_THRESHOLD = 7;
+
+        // Render Ribbon SVG with smooth cubic bezier, thickness preservation & synchronized 3D twist
+        function renderRibbon(targetX, targetY, targetTheta, targetRotY, flipAngle) {
+            const p0x = ANCHOR_P0_X;
+            const p0y = ANCHOR_P0_Y;
+            const p1x = ANCHOR_P0_X + targetX;
+            const p1y = targetY;
+
+            const rx = p1x - p0x;
+            const ry = p1y - p0y;
+            const dist = Math.hypot(rx, ry) || 1;
+            const s = dist / restLanyardLen;
+            const w = BASE_STRAP_W / Math.sqrt(Math.max(1, s));
+
+            // Gravity sag when ribbon is slack
+            const sag = dist < restLanyardLen ? (restLanyardLen - dist) * 0.65 : 0;
+            const handleLen = Math.max(dist * 0.32, 20);
+
+            // Control point 1: leaves top mounting ring heading vertically down
+            const c1x = p0x;
+            const c1y = p0y + handleLen + sag;
+
+            // Control point 2: enters card buckle aligned with card's rotation
+            const ux = -Math.sin(targetTheta);
+            const uy = -Math.cos(targetTheta);
+            const c2x = p1x + ux * handleLen;
+            const c2y = p1y + uy * handleLen + sag;
+
+            // Total twist angle from top (0 deg) to bottom (flipAngle + targetRotY)
+            const totalTwistDeg = flipAngle + targetRotY;
+            const totalTwistRad = totalTwistDeg * (Math.PI / 180);
+
+            // Check if ribbon has twisted past 90 deg (Mobius crossover point)
+            const absTwist = Math.abs(totalTwistDeg);
+            const hasCrossover = absTwist > 90;
+            const tCrossover = hasCrossover ? Math.min(0.92, Math.max(0.08, 90 / absTwist)) : 2.0;
+
+            const N = 24;
+            const pLeft = [];
+            const pRight = [];
+            const pStitchA = [];
+            const pStitchB = [];
+            const pCenter = [];
+
+            let creasePtL = null, creasePtR = null;
+
+            for (let i = 0; i <= N; i++) {
+                const t = i / N;
+                const it = 1 - t;
+                const it2 = it * it, it3 = it2 * it;
+                const t2 = t * t, t3 = t2 * t;
+
+                const px = it3 * p0x + 3 * it2 * t * c1x + 3 * it * t2 * c2x + t3 * p1x;
+                const py = it3 * p0y + 3 * it2 * t * c1y + 3 * it * t2 * c2y + t3 * p1y;
+
+                const dx = 3 * it2 * (c1x - p0x) + 6 * it * t * (c2x - c1x) + 3 * t2 * (p1x - c2x);
+                const dy = 3 * it2 * (c1y - p0y) + 6 * it * t * (c2y - c1y) + 3 * t2 * (p1y - c2y);
+                const len = Math.hypot(dx, dy) || 1;
+                const nx = -dy / len;
+                const ny = dx / len;
+
+                // 3D twist narrows ribbon width along its length
+                const twist = totalTwistRad * t;
+                const cosT = Math.cos(twist);
+
+                // Projected half-width (minimum 0.75px for fabric thickness edge-on)
+                const hwSigned = (w / 2) * cosT;
+                const hwAbs = Math.max(0.75, Math.abs(hwSigned));
+
+                pLeft.push({ x: px + nx * hwAbs, y: py + ny * hwAbs });
+                pRight.push({ x: px - nx * hwAbs, y: py - ny * hwAbs });
+
+                // Stitch lines A and B corkscrew across the faces in 3D
+                const stitchDist = Math.max(0.4, Math.abs(hwSigned) - 1.8) * Math.sign(cosT || 1);
+                pStitchA.push({ x: px + nx * stitchDist, y: py + ny * stitchDist });
+                pStitchB.push({ x: px - nx * stitchDist, y: py - ny * stitchDist });
+
+                pCenter.push({ x: px, y: py });
+
+                // Crossover pinch point record
+                if (hasCrossover && Math.abs(t - tCrossover) < (0.6 / N)) {
+                    creasePtL = { x: px + nx * hwAbs, y: py + ny * hwAbs };
+                    creasePtR = { x: px - nx * hwAbs, y: py - ny * hwAbs };
+                }
+            }
+
+            // Construct SVG path strings
+            let dStrap = 'M ' + pLeft[0].x.toFixed(1) + ' ' + pLeft[0].y.toFixed(1);
+            let dShadow = 'M ' + pLeft[0].x.toFixed(1) + ' ' + (pLeft[0].y + 4).toFixed(1);
+            for (let i = 1; i <= N; i++) {
+                dStrap += ' L ' + pLeft[i].x.toFixed(1) + ' ' + pLeft[i].y.toFixed(1);
+                dShadow += ' L ' + pLeft[i].x.toFixed(1) + ' ' + (pLeft[i].y + 4).toFixed(1);
+            }
+            for (let i = N; i >= 0; i--) {
+                dStrap += ' L ' + pRight[i].x.toFixed(1) + ' ' + pRight[i].y.toFixed(1);
+                dShadow += ' L ' + pRight[i].x.toFixed(1) + ' ' + (pRight[i].y + 4).toFixed(1);
+            }
+            dStrap += ' Z';
+            dShadow += ' Z';
+
+            // Reverse face segment when twisted past 90 degrees
+            let dBack = '';
+            if (hasCrossover) {
+                const startIdx = Math.floor(tCrossover * N);
+                dBack = 'M ' + pLeft[startIdx].x.toFixed(1) + ' ' + pLeft[startIdx].y.toFixed(1);
+                for (let i = startIdx + 1; i <= N; i++) {
+                    dBack += ' L ' + pLeft[i].x.toFixed(1) + ' ' + pLeft[i].y.toFixed(1);
+                }
+                for (let i = N; i >= startIdx; i--) {
+                    dBack += ' L ' + pRight[i].x.toFixed(1) + ' ' + pRight[i].y.toFixed(1);
+                }
+                dBack += ' Z';
+            }
+
+            let dStitchA = 'M ' + pStitchA[0].x.toFixed(1) + ' ' + pStitchA[0].y.toFixed(1);
+            let dStitchB = 'M ' + pStitchB[0].x.toFixed(1) + ' ' + pStitchB[0].y.toFixed(1);
+            let dCenter = 'M ' + pCenter[0].x.toFixed(1) + ' ' + pCenter[0].y.toFixed(1);
+
+            for (let i = 1; i <= N; i++) {
+                dStitchA += ' L ' + pStitchA[i].x.toFixed(1) + ' ' + pStitchA[i].y.toFixed(1);
+                dStitchB += ' L ' + pStitchB[i].x.toFixed(1) + ' ' + pStitchB[i].y.toFixed(1);
+                dCenter += ' L ' + pCenter[i].x.toFixed(1) + ' ' + pCenter[i].y.toFixed(1);
+            }
+
+            strapPath.setAttribute('d', dStrap);
+            if (shadowPath) shadowPath.setAttribute('d', dShadow);
+            if (strapBackPath) strapBackPath.setAttribute('d', dBack);
+            if (stitchLeft) stitchLeft.setAttribute('d', dStitchA);
+            if (stitchRight) stitchRight.setAttribute('d', dStitchB);
+            if (tensionPath) {
+                tensionPath.setAttribute('d', dCenter);
+                const tensionOpacity = Math.max(0, Math.min(0.85, (s - 1) * 2.5));
+                tensionPath.style.opacity = tensionOpacity;
+            }
+
+            if (creasePath) {
+                if (creasePtL && creasePtR) {
+                    creasePath.setAttribute('d', 'M ' + creasePtL.x.toFixed(1) + ' ' + creasePtL.y.toFixed(1) + ' L ' + creasePtR.x.toFixed(1) + ' ' + creasePtR.y.toFixed(1));
+                    creasePath.style.opacity = '0.75';
+                } else {
+                    creasePath.setAttribute('d', '');
+                    creasePath.style.opacity = '0';
+                }
+            }
+        }
+
+        function updateAssemblyTransform() {
+            const totalRotY = rotY + curMouseTiltY;
+            const totalRotX = rotX + curMouseTiltX;
+
+            // Unified assembly in 3D perspective
+            cardAssembly.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) rotateZ(${(theta * 180 / Math.PI).toFixed(2)}deg) rotateY(${totalRotY.toFixed(2)}deg) rotateX(${totalRotX.toFixed(2)}deg)`;
+
+            // Card face rotation in frame sync
+            flipContainer.style.transform = `rotateY(${curFlipAngle.toFixed(2)}deg)`;
+
+            // Hardware rotation in frame sync with ribbon and card
+            if (hardware) {
+                hardware.style.transform = `translateX(-50%) rotateY(${curFlipAngle.toFixed(2)}deg)`;
+            }
+
+            // Ribbon continuously deforms and twists in lockstep
+            renderRibbon(x, y, theta, totalRotY, curFlipAngle);
+        }
+
+        function toggleFlip() {
+            if (isDragging) return;
+            isFlipped = !isFlipped;
+            targetFlipAngle = isFlipped ? 180 : 0;
+        }
+
+        // Pointer Drag & Interaction
+        flipContainer.addEventListener('pointerdown', (e) => {
+            if (reducedMotion) return;
+            pointerDown = true;
+            dragMoved = false;
+            startPointerX = e.clientX;
+            startPointerY = e.clientY;
+
+            const anchorRect = anchor.getBoundingClientRect();
+            grabOffsetX = e.clientX - (anchorRect.left + ANCHOR_P0_X + x);
+            grabOffsetY = e.clientY - (anchorRect.top + y);
+
+            pointerHistory = [{ t: performance.now(), x: e.clientX, y: e.clientY }];
+
+            if (flipContainer.setPointerCapture) {
+                try { flipContainer.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+            }
+        });
+
+        window.addEventListener('pointermove', (e) => {
+            if (!pointerDown) {
+                // Interactive hover 3D tilt
+                if (!reducedMotion) {
+                    const rect = flipContainer.getBoundingClientRect();
+                    const pad = 80;
+                    const inside = e.clientX >= rect.left - pad && e.clientX <= rect.right + pad &&
+                                   e.clientY >= rect.top - pad && e.clientY <= rect.bottom + pad;
+                    if (inside) {
+                        const cx = rect.left + rect.width / 2;
+                        const cy = rect.top + rect.height / 2;
+                        mouseTiltX = -((e.clientY - cy) / (rect.height / 2)) * 7;
+                        mouseTiltY = ((e.clientX - cx) / (rect.width / 2)) * 9;
+                    } else {
+                        mouseTiltX = 0; mouseTiltY = 0;
+                    }
+                }
+                return;
+            }
+
+            const distFromStart = Math.hypot(e.clientX - startPointerX, e.clientY - startPointerY);
+            if (!isDragging && distFromStart > DRAG_THRESHOLD) {
+                isDragging = true;
+                dragMoved = true;
+                entering = false;
+                cardAssembly.classList.add('is-dragging');
+                anchor.classList.add('is-dragging');
+            }
+
+            if (isDragging) {
+                const anchorRect = anchor.getBoundingClientRect();
+                const rawX = e.clientX - grabOffsetX - (anchorRect.left + ANCHOR_P0_X);
+                const rawY = e.clientY - grabOffsetY - anchorRect.top;
+
+                // Keep card below mounting ring at navbar
+                let targetY = Math.max(38, rawY);
+
+                // Horizontal screen boundaries
+                const minX = -(anchorRect.left + ANCHOR_P0_X) + (cardWidth / 2) + 10;
+                const maxX = window.innerWidth - (anchorRect.left + ANCHOR_P0_X) - (cardWidth / 2) - 10;
+                let targetX = Math.max(minX, Math.min(maxX, rawX));
+
+                // Sensible elastic stretch resistance (allows generous dragging up to 550px+)
+                const curDist = Math.hypot(targetX, targetY - ANCHOR_P0_Y);
+                const maxFree = 520;
+                if (curDist > maxFree) {
+                    const excess = curDist - maxFree;
+                    const clampedDist = maxFree + 75 * Math.tanh(excess / 75);
+                    const scale = clampedDist / curDist;
+                    targetX *= scale;
+                    targetY = ANCHOR_P0_Y + (targetY - ANCHOR_P0_Y) * scale;
+                }
+
+                x = targetX;
+                y = targetY;
+
+                // Card tilts in direction of drag
+                const targetTheta = Math.atan2(x, y - ANCHOR_P0_Y) * 0.85;
+                theta += (targetTheta - theta) * 0.35;
+
+                // Pointer velocity tracking for release momentum
+                const now = performance.now();
+                pointerHistory.push({ t: now, x: e.clientX, y: e.clientY });
+                if (pointerHistory.length > 5) pointerHistory.shift();
+            }
+        });
+
+        function handlePointerUp() {
+            if (!pointerDown) return;
+            pointerDown = false;
+
+            if (isDragging) {
+                isDragging = false;
+                cardAssembly.classList.remove('is-dragging');
+                anchor.classList.remove('is-dragging');
+
+                // Compute release momentum from pointer history
+                let relVx = 0, relVy = 0;
+                if (pointerHistory.length >= 2) {
+                    const first = pointerHistory[0];
+                    const last = pointerHistory[pointerHistory.length - 1];
+                    const dt = Math.max(0.008, (last.t - first.t) / 1000);
+                    relVx = (last.x - first.x) / dt;
+                    relVy = (last.y - first.y) / dt;
+                }
+
+                // Clamped release velocity
+                vx = Math.max(-2400, Math.min(2400, relVx));
+                vy = Math.max(-2400, Math.min(2400, relVy));
+
+                // Card angular momentum
+                omega = (vx / 80) * 8;
+                vRotY = (vx / 90) * 6;
+                vRotX = -(vy / 90) * 5;
+            }
+        }
+
+        window.addEventListener('pointerup', handlePointerUp);
+        window.addEventListener('pointercancel', handlePointerUp);
+
+        flipContainer.addEventListener('click', () => {
+            if (!dragMoved && !isDragging) toggleFlip();
+        });
+
+        flipContainer.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFlip();
+            }
+        });
+
+        flipContainer.addEventListener('mouseenter', () => { isHovered = true; });
+        flipContainer.addEventListener('mouseleave', () => {
+            isHovered = false;
+            mouseTiltX = 0;
+            mouseTiltY = 0;
+        });
+
+        // Image load: hide then fade in on load
+        const cardImages = flipContainer.querySelectorAll('img');
+        cardImages.forEach((img) => {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.7s ease';
+            const show = () => { img.style.opacity = '1'; };
+            img.addEventListener('load', show, { once: true });
+            if (img.complete) show();
+        });
+
+        // Main Physics & Animation Loop
+        function loop() {
+            const now = performance.now();
+            let dt = (now - lastTime) / 1000;
+            if (dt > 0.033) dt = 0.033;
+            if (dt < 0.001) dt = 0.001;
+            lastTime = now;
+
+            if (!reducedMotion && !isDragging) {
+                if (entering) {
+                    // Entrance drop: spring downwards from above navbar
+                    const rx = x;
+                    const ry = y - ANCHOR_P0_Y;
+                    const dist = Math.hypot(rx, ry) || 1;
+                    const ux = rx / dist;
+                    const uy = ry / dist;
+
+                    let fx = 0, fy = G;
+                    if (dist > L0) {
+                        const deltaL = dist - L0;
+                        const vRadial = vx * ux + vy * uy;
+                        const fTension = K_STRETCH * deltaL + C_RADIAL_DAMP * vRadial;
+                        fx -= fTension * ux;
+                        fy -= fTension * uy;
+                    }
+                    fx -= C_AIR * vx;
+                    fy -= C_AIR * vy;
+
+                    vx += fx * dt;
+                    vy += fy * dt;
+                    x += vx * dt;
+                    y += vy * dt;
+
+                    const targetTheta = Math.atan2(rx, ry);
+                    const torque = -K_ROT * (theta - targetTheta) - 0.035 * fx - C_ROT * omega;
+                    omega += torque * dt;
+                    theta += omega * dt;
+
+                    // When settled near rest, transition to normal mode
+                    if (Math.abs(y - (ANCHOR_P0_Y + restLanyardLen)) < 1.0 && Math.abs(vy) < 2.0 && Math.abs(vx) < 2.0) {
+                        entering = false;
+                    }
+                } else {
+                    // Full elastic pendulum physics
+                    const rx = x;
+                    const ry = y - ANCHOR_P0_Y;
+                    const dist = Math.hypot(rx, ry) || 1;
+                    const ux = rx / dist;
+                    const uy = ry / dist;
+
+                    let fx = 0;
+                    let fy = G;
+
+                    if (dist > L0) {
+                        const deltaL = dist - L0;
+                        const vRadial = vx * ux + vy * uy;
+                        // Non-linear spring tension + radial damping
+                        const fSpring = K_STRETCH * deltaL + 0.08 * deltaL * deltaL;
+                        const fRadialDamp = C_RADIAL_DAMP * vRadial;
+                        const fTension = fSpring + fRadialDamp;
+                        fx -= fTension * ux;
+                        fy -= fTension * uy;
+                    } else if (y < 40) {
+                        // Soft barrier below navbar
+                        fy += (40 - y) * 20;
+                    }
+
+                    // Air drag
+                    fx -= C_AIR * vx;
+                    fy -= C_AIR * vy;
+
+                    // Position integration
+                    vx += fx * dt;
+                    vy += fy * dt;
+                    x += vx * dt;
+                    y += vy * dt;
+
+                    // Rotational pendulum torque & lateral inertial lag
+                    const targetTheta = Math.atan2(rx, ry);
+                    const torque = -K_ROT * (theta - targetTheta) - 0.035 * fx - C_ROT * omega;
+                    omega += torque * dt;
+                    theta += omega * dt;
+
+                    // 3D Torsion (Yaw / Twist)
+                    const targetRotY = (vx * 0.03) + (omega * 8);
+                    const torqueY = -28 * rotY - 5.5 * vRotY + targetRotY * 16;
+                    vRotY += torqueY * dt;
+                    rotY += vRotY * dt;
+
+                    // 3D Pitch (Tilt X)
+                    const targetRotX = -(vy * 0.015);
+                    const torqueX = -32 * rotX - 6.0 * vRotX + targetRotX * 14;
+                    vRotX += torqueX * dt;
+                    rotX += vRotX * dt;
+
+                    // Check if settled into resting equilibrium
+                    const targetRestY = ANCHOR_P0_Y + restLanyardLen + (isHovered ? 8 : 0);
+                    const isNearRest = Math.hypot(vx, vy) < 1.8 &&
+                                       Math.abs(x) < 1.0 &&
+                                       Math.abs(y - targetRestY) < 1.5 &&
+                                       Math.abs(omega) < 0.06 &&
+                                       Math.abs(theta) < 0.02;
+
+                    if (isNearRest) {
+                        // Gentle ambient idle sway (breathing pendulum)
+                        idleTime += dt * 1.5;
+                        const idleAngle = Math.sin(idleTime) * 0.016; // ~0.9 degrees
+                        const idleX = Math.sin(idleTime) * 2.8;
+                        const idleY = targetRestY + Math.cos(idleTime * 2) * 0.5;
+
+                        x += (idleX - x) * 0.06;
+                        y += (idleY - y) * 0.06;
+                        theta += (idleAngle - theta) * 0.06;
+                        rotY += (Math.sin(idleTime * 0.7) * 2.5 - rotY) * 0.06;
+                        rotX += (-rotX) * 0.06;
+
+                        vx *= 0.85;
+                        vy *= 0.85;
+                        omega *= 0.85;
+                    }
+                }
+            }
+
+            // Smooth mouse tilt on hover
+            curMouseTiltX += (mouseTiltX - curMouseTiltX) * 0.14;
+            curMouseTiltY += (mouseTiltY - curMouseTiltY) * 0.14;
+
+            // Synchronized 3D Flip Spring integration
+            if (!reducedMotion) {
+                const flipDiff = targetFlipAngle - curFlipAngle;
+                const aFlip = K_FLIP * flipDiff - C_FLIP * vFlipAngle;
+                vFlipAngle += aFlip * dt;
+                curFlipAngle += vFlipAngle * dt;
+                if (Math.abs(flipDiff) < 0.05 && Math.abs(vFlipAngle) < 0.05) {
+                    curFlipAngle = targetFlipAngle;
+                    vFlipAngle = 0;
+                }
+            } else {
+                curFlipAngle = targetFlipAngle;
+                vFlipAngle = 0;
+            }
+
+            updateAssemblyTransform();
+            rafId = requestAnimationFrame(loop);
+        }
+
+        if (reducedMotion) {
+            cancelAnimationFrame(rafId);
+            x = 0;
+            y = ANCHOR_P0_Y + restLanyardLen;
+            theta = 0;
+            rotY = 0;
+            rotX = 0;
+            curMouseTiltX = 0;
+            curMouseTiltY = 0;
+            updateAssemblyTransform();
+        } else {
+            rafId = requestAnimationFrame(loop);
+        }
+
+        window.addEventListener('beforeunload', () => {
+            cancelAnimationFrame(rafId);
+        });
+    })();
+
 });

@@ -128,9 +128,70 @@
                     <span></span>
                 </button>
             </div>
+
+            <!-- Developer ID Card - hanging from under the Let's Talk button -->
+            <div class="navbar-card-anchor" id="navbarCardAnchor">
+                <div class="mounting-ring" aria-hidden="true"></div>
+
+                <!-- Continuous SVG Ribbon -->
+                <svg class="lanyard-ribbon-svg" id="lanyardRibbonSvg" aria-hidden="true">
+                    <defs>
+                        <!-- Sleek nylon strap with realistic depth -->
+                        <linearGradient id="lanyardGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#07070a"/>
+                            <stop offset="20%" stop-color="#14141d"/>
+                            <stop offset="50%" stop-color="#242436"/>
+                            <stop offset="80%" stop-color="#14141d"/>
+                            <stop offset="100%" stop-color="#07070a"/>
+                        </linearGradient>
+                        <!-- Reverse side weave texture for 3D flip -->
+                        <linearGradient id="lanyardBackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#050508"/>
+                            <stop offset="25%" stop-color="#101018"/>
+                            <stop offset="50%" stop-color="#1c1c28"/>
+                            <stop offset="75%" stop-color="#101018"/>
+                            <stop offset="100%" stop-color="#050508"/>
+                        </linearGradient>
+                        <!-- Tension glow highlight -->
+                        <linearGradient id="tensionSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(0, 212, 255, 0.45)"/>
+                            <stop offset="50%" stop-color="rgba(255, 255, 255, 0.3)"/>
+                            <stop offset="100%" stop-color="rgba(0, 212, 255, 0.45)"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="ribbon-shadow" id="ribbonShadowPath" d=""/>
+                    <path class="ribbon-strap" id="ribbonStrapPath" d="" fill="url(#lanyardGrad)"/>
+                    <path class="ribbon-strap-back" id="ribbonStrapBack" d="" fill="url(#lanyardBackGrad)"/>
+                    <path class="ribbon-crease" id="ribbonCrease" d=""/>
+                    <path class="ribbon-stitch" id="ribbonStitchLeft" d=""/>
+                    <path class="ribbon-stitch" id="ribbonStitchRight" d=""/>
+                    <path class="ribbon-tension" id="ribbonTensionPath" d="" stroke="url(#tensionSheen)"/>
+                </svg>
+
+                <!-- Unified Card & Hardware Assembly -->
+                <div class="card-assembly" id="cardAssembly">
+                    <!-- Metal Hardware physically linking ribbon to card -->
+                    <div class="lanyard-hardware" aria-hidden="true">
+                        <div class="buckle"></div>
+                        <div class="swivel-hook"></div>
+                        <div class="connecting-ring"></div>
+                    </div>
+                    <!-- ID Card with 3D tilt & flip -->
+                    <div class="card-tilt-wrapper">
+                        <div class="card-flip-container" id="cardFlipContainer" tabindex="0" role="button" aria-label="Shaheer Ul Islam — Developer ID card. Click, Enter or Space to flip.">
+                            <div class="card-face card-front">
+                                <img src="assets/img/front.png" alt="Developer ID card front" loading="eager" decoding="async">
+                            </div>
+                            <div class="card-face card-back">
+                                <img src="assets/img/back.png" alt="Developer ID card back" loading="eager" decoding="async">
+                                <span class="flip-hint">CLICK TO RETURN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg">
